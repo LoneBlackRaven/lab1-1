@@ -24,7 +24,7 @@ void Menu(Pipe t, Compress c) {
         cout << "\nChoose type:\n 1. Pipe \n 2. Compress\n 3. Show All\n";
         int type;
         cin >> type;
-        if (cin.fail()) {
+        if (cin.fail() || type>3 || type < 1) {
             cout << "Error!" << endl;
             cout << "Write correct number (1-3)" << endl;
             cin.clear();
@@ -36,7 +36,7 @@ void Menu(Pipe t, Compress c) {
             cout << "Choose option:\n 1. Add pipe \n 2. Pipe lenght\n 3. Pipe diametr\n 4. Repairing\n";
             int option;
             cin >> option;
-            if (cin.fail()) {
+            if (cin.fail() || option > 4 || option < 1) {
                 cout << "Error!" << endl;
                 cout << "Write correct number (1-4)" << endl;
                 cin.clear();
@@ -51,7 +51,7 @@ void Menu(Pipe t, Compress c) {
             case 2:
                 cout << "Enter pipe lenght (km): ";
                 cin >> t.length;
-                if (cin.fail()) {
+                if (cin.fail() || t.length <=0) {
                     cout << "Error!" << endl;
                     cout << "Write correct number" << endl;
                     cin.clear();
@@ -61,7 +61,7 @@ void Menu(Pipe t, Compress c) {
             case 3:
                 cout << "Enter pipe diametr (mm): ";
                 cin >> t.diametr;
-                if (cin.fail()) {
+                if (cin.fail() || t.diametr <= 0) {
                     cout << "Error!" << endl;
                     cout << "Write correct number" << endl;
                     cin.clear();
@@ -70,13 +70,15 @@ void Menu(Pipe t, Compress c) {
                 break;
             case 4:
                 cout << "Is pipe on repair? (0 - no, 1 - yes)";
-                cin >> t.repair;
-                if (cin.fail()) {
+                int trig;
+                cin >> trig;
+                if (cin.fail() || (trig != 1 && trig != 0)) {
                     cout << "Error!" << endl;
                     cout << "Write 0 or 1" << endl;
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 }
+                t.repair = trig;
                 break;
             }
             break;
@@ -84,7 +86,7 @@ void Menu(Pipe t, Compress c) {
             cout << "Choose option:\n 1. Add CS \n 2. Quantity of CS \n 3. Quantity working\n 4. Classification\n 5. Working\n";
             int option2;
             cin >> option2;
-            if (cin.fail()) {
+            if (cin.fail() || option2 > 5 || option2 < 1) {
                 cout << "Error!" << endl;
                 cout << "Write correct number (1-5)" << endl;
                 cin.clear();
@@ -99,7 +101,7 @@ void Menu(Pipe t, Compress c) {
             case 2:
                 cout << "Enter quantity of enterprises: ";
                 cin >> c.count;
-                if (cin.fail()) {
+                if (cin.fail() || c.count <= 0) {
                     cout << "Error!" << endl;
                     cout << "Write correct number" << endl;
                     cin.clear();
@@ -109,7 +111,7 @@ void Menu(Pipe t, Compress c) {
             case 3:
                 cout << "Enter quantity of working enterprises: ";
                 cin >> c.count_working;
-                if (cin.fail()) {
+                if (cin.fail() || c.count_working < 0 || c.count_working > c.count) {
                     cout << "Error!" << endl;
                     cout << "Write correct number" << endl;
                     cin.clear();
@@ -122,8 +124,9 @@ void Menu(Pipe t, Compress c) {
                 break;
             case 5:
                 cout << "Is CS working? (0 - no, 1 - yes) ";
-                cin >> c.working;
-                if (cin.fail()) {
+                int trig1;
+                cin >> trig1;
+                if (cin.fail() || (trig1 != 0 && trig1 !=1)) {
                     cout << "Error!" << endl;
                     cout << "Write 0 or 1" << endl;
                     cin.clear();
