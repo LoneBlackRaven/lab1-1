@@ -10,6 +10,13 @@ struct Pipe {
     bool repair;
 };
 
+void check() {
+    cout << "Error!" << endl;
+    cout << "Write correct data" << endl;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+
 struct Compress {
     string name;
     int count;
@@ -25,61 +32,42 @@ void Menu(Pipe t, Compress c) {
         int type;
         cin >> type;
         if (cin.fail() || type>3 || type < 1) {
-            cout << "Error!" << endl;
-            cout << "Write correct number (1-3)" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            check();
         }
         switch (type)
         {
         case 1:
-            cout << "Choose option:\n 1. Add pipe \n 2. Pipe lenght\n 3. Pipe diametr\n 4. Repairing\n";
+            cout << "Choose option:\n 1. Add pipe \n 2. Pipe lenght\n 3. Pipe diametr\n 4. Repairing\n 5. Edit\n";
             int option;
             cin >> option;
             if (cin.fail() || option > 4 || option < 1) {
-                cout << "Error!" << endl;
-                cout << "Write correct number (1-4)" << endl;
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                check();
             }
             switch (option)
             {
             case 1:
                 cout << "Enter pipe name:";
                 cin >> t.name;
-                break;
             case 2:
                 cout << "Enter pipe lenght (km): ";
                 cin >> t.length;
                 if (cin.fail() || t.length <=0) {
-                    cout << "Error!" << endl;
-                    cout << "Write correct number" << endl;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    check();
                 }
-                break;
             case 3:
                 cout << "Enter pipe diametr (mm): ";
                 cin >> t.diametr;
                 if (cin.fail() || t.diametr <= 0) {
-                    cout << "Error!" << endl;
-                    cout << "Write correct number" << endl;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    check();
                 }
-                break;
             case 4:
                 cout << "Is pipe on repair? (0 - no, 1 - yes)";
                 int trig;
                 cin >> trig;
                 if (cin.fail() || (trig != 1 && trig != 0)) {
-                    cout << "Error!" << endl;
-                    cout << "Write 0 or 1" << endl;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    check();
                 }
                 t.repair = trig;
-                break;
             }
             break;
         case 2:
@@ -87,52 +75,35 @@ void Menu(Pipe t, Compress c) {
             int option2;
             cin >> option2;
             if (cin.fail() || option2 > 5 || option2 < 1) {
-                cout << "Error!" << endl;
-                cout << "Write correct number (1-5)" << endl;
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                check();
             }
             switch (option2)
             {
             case 1:
                 cout << "Enter CS name: ";
                 cin >> c.name;
-                break;
             case 2:
                 cout << "Enter quantity of enterprises: ";
                 cin >> c.count;
                 if (cin.fail() || c.count <= 0) {
-                    cout << "Error!" << endl;
-                    cout << "Write correct number" << endl;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    check();
                 }
-                break;
             case 3:
                 cout << "Enter quantity of working enterprises: ";
                 cin >> c.count_working;
                 if (cin.fail() || c.count_working < 0 || c.count_working > c.count) {
-                    cout << "Error!" << endl;
-                    cout << "Write correct number" << endl;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    check();
                 }
-                break;
             case 4:
                 cout << "Enter classification: ";
                 cin >> c.classification;
-                break;
             case 5:
                 cout << "Is CS working? (0 - no, 1 - yes) ";
                 int trig1;
                 cin >> trig1;
                 if (cin.fail() || (trig1 != 0 && trig1 !=1)) {
-                    cout << "Error!" << endl;
-                    cout << "Write 0 or 1" << endl;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    check();
                 }
-                break;
             }
             break;
         case 3:
