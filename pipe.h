@@ -14,29 +14,29 @@ private:
     bool repair;
 
 public:
-    // Конструктор по умолчанию
+    //по умолчанию
     Pipe();
 
-    // Конструктор с параметрами
+    //с параметрами
     Pipe(const std::string& name, float length, int diametr, bool repair = false);
 
-    // Методы для установки значений
+    //установка значений
     void setName(const std::string& newName);
     void setLength(float newLength);
     void setDiametr(int newDiametr);
     void setRepair(bool newRepair);
 
-    // Методы для получения значений
+    //получение значений
     int getId() const;
     std::string getName() const;
     float getLength() const;
     int getDiametr() const;
     bool getRepair() const;
 
-    // Метод для вывода информации о трубе
+    //вывод инфы
     void display() const;
 
-    // Статический метод для получения следующего ID
+    //айди
     static int getNextId();
 };
 

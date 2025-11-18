@@ -6,9 +6,9 @@
 #include <iomanip>
 #include <sstream>
 
-// Функция для ввода всех данных трубы
+//ввод трубы
 Pipe inputPipeData() {
-    std::cout << "=== Enter pipe data ===" << std::endl;
+    std::cout << "Enter pipe data" << std::endl;
     std::string name = inputString("Enter pipe name: ");
     float length = inputFloat("Enter pipe length (km): ", 0.0f);
     int diametr = inputInt("Enter pipe diameter (mm): ", 1);
@@ -22,9 +22,9 @@ Pipe inputPipeData() {
     return pipe;
 }
 
-// Функция для ввода всех данных компрессорной станции
+//ввод кс
 Compress inputCompressData() {
-    std::cout << "=== Enter CS data ===" << std::endl;
+    std::cout << "Enter CS data" << std::endl;
     std::string name = inputString("Enter CS name: ");
     int count = inputInt("Enter quantity of enterprises: ", 1);
     int count_working = inputInt("Enter quantity of working enterprises: ", 0, count);
@@ -40,7 +40,7 @@ Compress inputCompressData() {
     return compress;
 }
 
-// Функция для отображения всех труб
+//отображение труб
 void displayAllPipes(const std::vector<Pipe>& pipes) {
     if (pipes.empty()) {
         std::cout << "No pipes available." << std::endl;
@@ -55,7 +55,7 @@ void displayAllPipes(const std::vector<Pipe>& pipes) {
     }
 }
 
-// Функция для поиска труб по имени
+//поиск по имени
 std::vector<int> findPipesByName(const std::vector<Pipe>& pipes, const std::string& name) {
     std::vector<int> result;
     for (const auto& pipe : pipes) {
@@ -67,7 +67,7 @@ std::vector<int> findPipesByName(const std::vector<Pipe>& pipes, const std::stri
     return result;
 }
 
-// Функция для поиска труб по статусу ремонта
+//поиск по ремонту
 std::vector<int> findPipesByRepairStatus(const std::vector<Pipe>& pipes, bool repairStatus) {
     std::vector<int> result;
     for (const auto& pipe : pipes) {
@@ -80,7 +80,7 @@ std::vector<int> findPipesByRepairStatus(const std::vector<Pipe>& pipes, bool re
     return result;
 }
 
-// Функция для пакетного редактирования труб
+//пакетное редактирование
 void batchEditPipes(std::vector<Pipe>& pipes, const std::unordered_set<int>& pipeIds) {
     if (pipeIds.empty()) {
         std::cout << "No pipes selected for editing." << std::endl;
@@ -91,7 +91,7 @@ void batchEditPipes(std::vector<Pipe>& pipes, const std::unordered_set<int>& pip
     logAction("BATCH EDIT: Starting batch edit for " + std::to_string(pipeIds.size()) + " pipes");
     std::cout << "Batch editing " << pipeIds.size() << " pipes." << std::endl;
 
-    // Предлагаем варианты редактирования
+    //варианты
     std::cout << "Choose what to edit:\n";
     std::cout << "1. Toggle repair status\n";
     std::cout << "2. Change diameter\n";
@@ -118,7 +118,6 @@ void batchEditPipes(std::vector<Pipe>& pipes, const std::unordered_set<int>& pip
                 break;
             }
             case 3: {
-                // Помечаем для удаления (удаление будет выполнено после цикла)
                 logAction("BATCH EDIT - Pipe ID: " + std::to_string(pipe.getId()) + " marked for deletion");
                 break;
             }
@@ -126,7 +125,7 @@ void batchEditPipes(std::vector<Pipe>& pipes, const std::unordered_set<int>& pip
         }
     }
 
-    // Удаление помеченных труб
+    //удаление труб
     if (choice == 3) {
         pipes.erase(std::remove_if(pipes.begin(), pipes.end(),
             [&pipeIds](const Pipe& pipe) {
@@ -137,7 +136,7 @@ void batchEditPipes(std::vector<Pipe>& pipes, const std::unordered_set<int>& pip
     }
 }
 
-// Функция для отображения всех КС
+//отображениие кс
 void displayAllCompressStations(const std::vector<Compress>& stations) {
     if (stations.empty()) {
         std::cout << "No compress stations available." << std::endl;
@@ -152,7 +151,7 @@ void displayAllCompressStations(const std::vector<Compress>& stations) {
     }
 }
 
-// Функция для поиска КС по имени
+//поиск кс по имени
 std::vector<int> findStationsByName(const std::vector<Compress>& stations, const std::string& name) {
     std::vector<int> result;
     for (const auto& station : stations) {
@@ -164,7 +163,7 @@ std::vector<int> findStationsByName(const std::vector<Compress>& stations, const
     return result;
 }
 
-// Функция для поиска КС по проценту незадействованных цехов
+//поиск кс по цехам
 std::vector<int> findStationsByUnusedPercentage(const std::vector<Compress>& stations, double minPercentage) {
     std::vector<int> result;
     for (const auto& station : stations) {
@@ -177,7 +176,7 @@ std::vector<int> findStationsByUnusedPercentage(const std::vector<Compress>& sta
     return result;
 }
 
-// Функция для сохранения данных
+//сохранение данных
 void saveData(const std::vector<Pipe>& pipes, const std::vector<Compress>& stations) {
     std::string filename = inputString("Enter filename for saving: ");
     std::ofstream file(filename);
@@ -188,12 +187,12 @@ void saveData(const std::vector<Pipe>& pipes, const std::vector<Compress>& stati
         return;
     }
 
-    // Заголовок файла
-    file << "=== PIPELINE SYSTEM DATA ===" << std::endl;
+    //заголовок
+    file << "PIPELINE SYSTEM DATA" << std::endl;
     file << "Saved: " << getCurrentTime() << std::endl;
-    file << "=================================" << std::endl << std::endl;
+    file << "" << std::endl << std::endl;
 
-    // Сохраняем трубы с красивым форматированием
+    //трубы сохранение
     file << "PIPES [" << pipes.size() << " items]:" << std::endl;
     file << std::string(50, '-') << std::endl;
     file << std::left << std::setw(6) << "ID"
@@ -213,7 +212,7 @@ void saveData(const std::vector<Pipe>& pipes, const std::vector<Compress>& stati
 
     file << std::endl << std::endl;
 
-    // Сохраняем КС с красивым форматированием
+    //сохранение и форматирование
     file << "COMPRESS STATIONS [" << stations.size() << " items]:" << std::endl;
     file << std::string(70, '-') << std::endl;
     file << std::left << std::setw(6) << "ID"
@@ -235,7 +234,7 @@ void saveData(const std::vector<Pipe>& pipes, const std::vector<Compress>& stati
             << std::setw(10) << (station.getWorking() ? "Yes" : "No") << std::endl;
     }
 
-    file << std::endl << "=== END OF DATA ===" << std::endl;
+    file << std::endl << "END OF DATA" << std::endl;
 
     file.close();
     logAction("SAVE: Successfully saved " + std::to_string(pipes.size()) + " pipes and " +
@@ -243,7 +242,7 @@ void saveData(const std::vector<Pipe>& pipes, const std::vector<Compress>& stati
     std::cout << "Data saved successfully to '" << filename << "'!" << std::endl;
 }
 
-// Функция для загрузки данных - УПРОЩЕННАЯ ВЕРСИЯ
+//загрузка из файла
 void loadData(std::vector<Pipe>& pipes, std::vector<Compress>& stations) {
     std::string filename = inputString("Enter filename for loading: ");
     std::ifstream file(filename);
@@ -263,7 +262,7 @@ void loadData(std::vector<Pipe>& pipes, std::vector<Compress>& stations) {
     int pipesLoaded = 0;
     int stationsLoaded = 0;
 
-    // Пропускаем заголовок
+    //заголовки
     for (int i = 0; i < 5; i++) {
         std::getline(file, line);
     }
@@ -271,23 +270,20 @@ void loadData(std::vector<Pipe>& pipes, std::vector<Compress>& stations) {
     while (std::getline(file, line)) {
         if (line.empty()) continue;
 
-        // Если нашли разделитель станций, переключаемся
         if (line.find("COMPRESS STATIONS") != std::string::npos) {
             readingPipes = false;
             readingStations = true;
-            // Пропускаем еще 2 строки (разделители)
             std::getline(file, line);
             std::getline(file, line);
             continue;
         }
 
-        // Если нашли конец данных, выходим
+        //выход при конце ины=фы
         if (line.find("END OF DATA") != std::string::npos) {
             break;
         }
 
         if (!readingStations && !line.empty() && line[0] != '=') {
-            // Загружаем трубы - простой парсинг
             std::istringstream ss(line);
             int id;
             std::string name;
@@ -306,7 +302,6 @@ void loadData(std::vector<Pipe>& pipes, std::vector<Compress>& stations) {
             }
         }
         else if (readingStations && !line.empty() && line[0] != '=') {
-            // Загружаем станции - простой парсинг
             std::istringstream ss(line);
             int id;
             std::string name;
@@ -334,7 +329,7 @@ void loadData(std::vector<Pipe>& pipes, std::vector<Compress>& stations) {
         << stationsLoaded << " stations." << std::endl;
 }
 
-// Основная функция меню
+//меню
 void Menu() {
     std::vector<Pipe> pipes;
     std::vector<Compress> stations;
@@ -342,7 +337,7 @@ void Menu() {
     logAction("PROGRAM STARTED");
 
     while (true) {
-        std::cout << "\n=== MAIN MENU ===" << std::endl;
+        std::cout << "\nMAIN MENU" << std::endl;
         std::cout << "1. Add Pipe" << std::endl;
         std::cout << "2. Add Compress Station" << std::endl;
         std::cout << "3. View All Objects" << std::endl;
@@ -371,9 +366,9 @@ void Menu() {
         }
         case 3: {
             logAction("ACTION: Displaying all objects");
-            std::cout << "\n=== PIPES ===" << std::endl;
+            std::cout << "\nPIPES" << std::endl;
             displayAllPipes(pipes);
-            std::cout << "\n=== COMPRESS STATIONS ===" << std::endl;
+            std::cout << "\nCOMPRESS STATIONS" << std::endl;
             displayAllCompressStations(stations);
             break;
         }

@@ -146,3 +146,202 @@ Program exited
 [2025-10-21 21:58:09.606] INPUT: Integer input - prompt: 'Enter your choice: ', value: 0
 [2025-10-21 21:58:09.606] MENU: User selected option 0
 [2025-10-21 21:58:09.607] PROGRAM EXIT - Final state: 1 pipes, 0 stations
+[2025-10-22 12:26:15.815] PROGRAM STARTED
+[2025-10-22 12:26:17.150] INPUT: Integer input - prompt: 'Enter your choice: ', value: 1
+[2025-10-22 12:26:17.150] MENU: User selected option 1
+[2025-10-22 12:26:18.346] INPUT: String input - prompt: 'Enter pipe name: ', value: '1'
+[2025-10-22 12:26:18.681] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 1.000000
+[2025-10-22 12:26:18.972] INPUT: Integer input - prompt: 'Enter pipe diameter (mm): ', value: 1
+[2025-10-22 12:26:19.299] INPUT: String input - prompt: 'Is pipe on repair? (0 - no, 1 - yes): ', value: '1'
+[2025-10-22 12:26:19.300] INPUT: Boolean input - prompt: 'Is pipe on repair?', value: true
+[2025-10-22 12:26:19.300] PIPE CREATED - ID: 1, Name: '1', Length: 1.000000km, Diameter: 1mm, Repair: yes
+[2025-10-22 12:26:19.300] ACTION: Added new pipe - Total pipes: 1
+[2025-10-22 12:26:20.162] INPUT: Integer input - prompt: 'Enter your choice: ', value: 1
+[2025-10-22 12:26:20.163] MENU: User selected option 1
+[2025-10-22 12:26:20.531] INPUT: String input - prompt: 'Enter pipe name: ', value: '1'
+[2025-10-22 12:26:20.808] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 1.000000
+[2025-10-22 12:26:21.008] INPUT: Integer input - prompt: 'Enter pipe diameter (mm): ', value: 1
+[2025-10-22 12:26:21.244] INPUT: String input - prompt: 'Is pipe on repair? (0 - no, 1 - yes): ', value: '1'
+[2025-10-22 12:26:21.244] INPUT: Boolean input - prompt: 'Is pipe on repair?', value: true
+[2025-10-22 12:26:21.245] PIPE CREATED - ID: 2, Name: '1', Length: 1.000000km, Diameter: 1mm, Repair: yes
+[2025-10-22 12:26:21.245] ACTION: Added new pipe - Total pipes: 2
+[2025-10-22 12:26:25.894] INPUT: Integer input - prompt: 'Enter your choice: ', value: 3
+[2025-10-22 12:26:25.895] MENU: User selected option 3
+[2025-10-22 12:26:25.896] ACTION: Displaying all objects
+[2025-10-22 12:26:25.897] DISPLAY: Showing 2 pipes
+[2025-10-22 12:26:25.904] DISPLAY: No stations to display
+[2025-10-22 12:26:50.776] INPUT: Integer input - prompt: 'Enter your choice: ', value: 0
+[2025-10-22 12:26:50.776] MENU: User selected option 0
+[2025-10-22 12:26:50.777] PROGRAM EXIT - Final state: 2 pipes, 0 stations
+[2025-10-22 13:24:28.235] PROGRAM STARTED
+[2025-10-22 13:24:34.513] INPUT: Integer input - prompt: 'Enter your choice: ', value: 4
+[2025-10-22 13:24:34.514] MENU: User selected option 4
+[2025-10-22 13:24:34.515] ACTION: No pipes available for editing
+[2025-10-22 13:24:36.156] INPUT: Integer input - prompt: 'Enter your choice: ', value: 4
+[2025-10-22 13:24:36.157] MENU: User selected option 4
+[2025-10-22 13:24:36.157] ACTION: No pipes available for editing
+[2025-10-22 13:24:37.117] INPUT: Integer input - prompt: 'Enter your choice: ', value: 6
+[2025-10-22 13:24:37.117] MENU: User selected option 6
+[2025-10-22 13:24:37.118] ACTION: Starting pipe search
+[2025-10-22 13:24:39.153] INPUT: Integer input - prompt: 'Enter choice: ', value: 1
+[2025-10-22 13:24:40.313] INPUT: String input - prompt: 'Enter name to search: ', value: '0'
+[2025-10-22 13:24:40.313] SEARCH PIPES BY NAME: '0' - Found 0 pipes
+[2025-10-22 13:24:44.411] INPUT: Integer input - prompt: 'Enter your choice: ', value: 0
+[2025-10-22 13:24:44.411] MENU: User selected option 0
+[2025-10-22 13:24:44.411] PROGRAM EXIT - Final state: 0 pipes, 0 stations
+[2025-10-22 13:24:47.412] PROGRAM STARTED
+[2025-10-22 13:26:34.176] PROGRAM STARTED
+[2025-10-22 13:26:35.543] INPUT: Integer input - prompt: 'Enter your choice: ', value: 1
+[2025-10-22 13:26:35.543] MENU: User selected option 1
+[2025-10-22 13:26:36.607] INPUT: String input - prompt: 'Enter pipe name: ', value: 'ihfgjnk'
+[2025-10-22 13:26:38.851] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 15.000000
+[2025-10-22 13:26:39.451] INPUT: Integer input - prompt: 'Enter pipe diameter (mm): ', value: 14
+[2025-10-22 13:26:40.406] INPUT: String input - prompt: 'Is pipe on repair? (0 - no, 1 - yes): ', value: '0'
+[2025-10-22 13:26:40.407] INPUT: Boolean input - prompt: 'Is pipe on repair?', value: false
+[2025-10-22 13:26:40.407] PIPE CREATED - ID: 1, Name: 'ihfgjnk', Length: 15.000000km, Diameter: 14mm, Repair: no
+[2025-10-22 13:26:40.407] ACTION: Added new pipe - Total pipes: 1
+[2025-10-22 13:26:41.796] INPUT: Integer input - prompt: 'Enter your choice: ', value: 1
+[2025-10-22 13:26:41.796] MENU: User selected option 1
+[2025-10-22 13:26:43.313] INPUT: String input - prompt: 'Enter pipe name: ', value: 'qwe'
+[2025-10-22 13:26:44.706] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 14.000000
+[2025-10-22 13:26:45.439] INPUT: Integer input - prompt: 'Enter pipe diameter (mm): ', value: 2
+[2025-10-22 13:26:46.634] INPUT: String input - prompt: 'Is pipe on repair? (0 - no, 1 - yes): ', value: '0'
+[2025-10-22 13:26:46.634] INPUT: Boolean input - prompt: 'Is pipe on repair?', value: false
+[2025-10-22 13:26:46.635] PIPE CREATED - ID: 2, Name: 'qwe', Length: 14.000000km, Diameter: 2mm, Repair: no
+[2025-10-22 13:26:46.635] ACTION: Added new pipe - Total pipes: 2
+[2025-10-22 13:26:48.220] INPUT: Integer input - prompt: 'Enter your choice: ', value: 1
+[2025-10-22 13:26:48.221] MENU: User selected option 1
+[2025-10-22 13:26:50.363] INPUT: String input - prompt: 'Enter pipe name: ', value: 'yui'
+[2025-10-22 13:26:51.761] INPUT ERROR: Invalid float input - prompt: Enter pipe length (km): 
+[2025-10-22 13:26:56.019] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 115.000000
+[2025-10-22 13:26:57.266] INPUT: Integer input - prompt: 'Enter pipe diameter (mm): ', value: 45
+[2025-10-22 13:26:58.528] INPUT: String input - prompt: 'Is pipe on repair? (0 - no, 1 - yes): ', value: '1'
+[2025-10-22 13:26:58.528] INPUT: Boolean input - prompt: 'Is pipe on repair?', value: true
+[2025-10-22 13:26:58.528] PIPE CREATED - ID: 3, Name: 'yui', Length: 115.000000km, Diameter: 45mm, Repair: yes
+[2025-10-22 13:26:58.529] ACTION: Added new pipe - Total pipes: 3
+[2025-10-22 13:27:00.708] INPUT: Integer input - prompt: 'Enter your choice: ', value: 3
+[2025-10-22 13:27:00.709] MENU: User selected option 3
+[2025-10-22 13:27:00.709] ACTION: Displaying all objects
+[2025-10-22 13:27:00.710] DISPLAY: Showing 3 pipes
+[2025-10-22 13:27:00.719] DISPLAY: No stations to display
+[2025-10-22 13:27:10.213] INPUT: Integer input - prompt: 'Enter your choice: ', value: 6
+[2025-10-22 13:27:10.214] MENU: User selected option 6
+[2025-10-22 13:27:10.214] ACTION: Starting pipe search
+[2025-10-22 13:27:16.018] INPUT: Integer input - prompt: 'Enter choice: ', value: 1
+[2025-10-22 13:27:17.335] INPUT: String input - prompt: 'Enter name to search: ', value: 'yui'
+[2025-10-22 13:27:17.335] SEARCH PIPES BY NAME: 'yui' - Found 1 pipes
+[2025-10-22 13:27:25.617] INPUT: Integer input - prompt: 'Enter your choice: ', value: 8
+[2025-10-22 13:27:25.617] MENU: User selected option 8
+[2025-10-22 13:27:25.617] ACTION: Starting batch pipe edit
+[2025-10-22 13:27:30.663] INPUT: Integer input - prompt: 'Enter choice: ', value: 2
+[2025-10-22 13:27:33.837] INPUT: Integer input - prompt: 'Enter ID: ', value: 3
+[2025-10-22 13:27:35.121] INPUT: Integer input - prompt: 'Enter ID: ', value: 2
+[2025-10-22 13:27:38.718] INPUT: Integer input - prompt: 'Enter ID: ', value: 0
+[2025-10-22 13:27:38.719] BATCH EDIT: Starting batch edit for 2 pipes
+[2025-10-22 13:27:46.849] INPUT ERROR: Invalid integer input - prompt: Enter your choice: 
+[2025-10-22 13:27:50.863] INPUT: Integer input - prompt: 'Enter your choice: ', value: 1
+[2025-10-22 13:27:50.863] BATCH EDIT - Pipe ID: 2 - Repair status changed to: yes
+[2025-10-22 13:27:50.864] BATCH EDIT - Pipe ID: 3 - Repair status changed to: no
+[2025-10-22 13:27:54.436] INPUT: Integer input - prompt: 'Enter your choice: ', value: 8
+[2025-10-22 13:27:54.437] MENU: User selected option 8
+[2025-10-22 13:27:54.437] ACTION: Starting batch pipe edit
+[2025-10-22 13:27:55.937] INPUT: Integer input - prompt: 'Enter choice: ', value: 2
+[2025-10-22 13:27:58.898] INPUT: Integer input - prompt: 'Enter ID: ', value: 3
+[2025-10-22 13:27:59.749] INPUT: Integer input - prompt: 'Enter ID: ', value: 0
+[2025-10-22 13:27:59.749] BATCH EDIT: Starting batch edit for 1 pipes
+[2025-10-22 13:28:04.483] INPUT: Integer input - prompt: 'Enter your choice: ', value: 3
+[2025-10-22 13:28:04.484] BATCH EDIT - Pipe ID: 3 marked for deletion
+[2025-10-22 13:28:04.484] BATCH EDIT - Deleted 1 pipes
+[2025-10-22 13:28:05.483] INPUT: Integer input - prompt: 'Enter your choice: ', value: 3
+[2025-10-22 13:28:05.483] MENU: User selected option 3
+[2025-10-22 13:28:05.484] ACTION: Displaying all objects
+[2025-10-22 13:28:05.484] DISPLAY: Showing 2 pipes
+[2025-10-22 13:28:05.493] DISPLAY: No stations to display
+[2025-10-22 13:28:10.258] INPUT: Integer input - prompt: 'Enter your choice: ', value: 1
+[2025-10-22 13:28:10.259] MENU: User selected option 1
+[2025-10-22 13:28:11.070] INPUT: String input - prompt: 'Enter pipe name: ', value: 'fghk'
+[2025-10-22 13:28:11.751] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 45.000000
+[2025-10-22 13:28:12.339] INPUT: Integer input - prompt: 'Enter pipe diameter (mm): ', value: 14
+[2025-10-22 13:28:12.838] INPUT: String input - prompt: 'Is pipe on repair? (0 - no, 1 - yes): ', value: '14'
+[2025-10-22 13:28:12.839] INPUT ERROR: Invalid boolean input - prompt: Is pipe on repair?, value: 14
+[2025-10-22 13:28:14.622] INPUT: String input - prompt: 'Is pipe on repair? (0 - no, 1 - yes): ', value: '0'
+[2025-10-22 13:28:14.622] INPUT: Boolean input - prompt: 'Is pipe on repair?', value: false
+[2025-10-22 13:28:14.623] PIPE CREATED - ID: 4, Name: 'fghk', Length: 45.000000km, Diameter: 14mm, Repair: no
+[2025-10-22 13:28:14.623] ACTION: Added new pipe - Total pipes: 3
+[2025-10-22 13:28:15.979] INPUT: Integer input - prompt: 'Enter your choice: ', value: 3
+[2025-10-22 13:28:15.979] MENU: User selected option 3
+[2025-10-22 13:28:15.980] ACTION: Displaying all objects
+[2025-10-22 13:28:15.980] DISPLAY: Showing 3 pipes
+[2025-10-22 13:28:15.990] DISPLAY: No stations to display
+[2025-10-22 13:28:24.688] INPUT: Integer input - prompt: 'Enter your choice: ', value: 6
+[2025-10-22 13:28:24.688] MENU: User selected option 6
+[2025-10-22 13:28:24.688] ACTION: Starting pipe search
+[2025-10-22 13:28:32.187] INPUT: Integer input - prompt: 'Enter choice: ', value: 1
+[2025-10-22 13:28:41.163] INPUT: String input - prompt: 'Enter name to search: ', value: 'fg'
+[2025-10-22 13:28:41.163] SEARCH PIPES BY NAME: 'fg' - Found 2 pipes
+[2025-10-22 13:29:09.175] INPUT: Integer input - prompt: 'Enter your choice: ', value: 6
+[2025-10-22 13:29:09.175] MENU: User selected option 6
+[2025-10-22 13:29:09.176] ACTION: Starting pipe search
+[2025-10-22 13:29:10.429] INPUT: Integer input - prompt: 'Enter choice: ', value: 2
+[2025-10-22 13:29:11.888] INPUT: String input - prompt: 'Search pipes in repair? (0 - no, 1 - yes): ', value: '0'
+[2025-10-22 13:29:11.888] INPUT: Boolean input - prompt: 'Search pipes in repair?', value: false
+[2025-10-22 13:29:11.889] SEARCH PIPES BY REPAIR STATUS: not in repair - Found 2 pipes
+[2025-10-22 13:29:53.033] INPUT: Integer input - prompt: 'Enter your choice: ', value: 9
+[2025-10-22 13:29:53.034] MENU: User selected option 9
+[2025-10-22 13:29:53.034] ACTION: User initiated data save
+[2025-10-22 13:29:54.243] INPUT: String input - prompt: 'Enter filename for saving: ', value: 'asdfghjk'
+[2025-10-22 13:29:54.246] SAVE: Successfully saved 3 pipes and 0 stations to file: 'asdfghjk'
+[2025-10-22 13:31:07.727] PROGRAM STARTED
+[2025-10-22 13:31:10.481] INPUT: Integer input - prompt: 'Enter your choice: ', value: 10
+[2025-10-22 13:31:10.482] MENU: User selected option 10
+[2025-10-22 13:31:10.482] ACTION: User initiated data load
+[2025-10-22 13:31:12.441] INPUT: String input - prompt: 'Enter filename for loading: ', value: 'asdfghjk'
+[2025-10-22 13:31:12.443] LOAD: Successfully loaded 3 pipes and 0 stations from file: 'asdfghjk'
+[2025-10-22 13:31:14.696] INPUT: Integer input - prompt: 'Enter your choice: ', value: 3
+[2025-10-22 13:31:14.697] MENU: User selected option 3
+[2025-10-22 13:31:14.697] ACTION: Displaying all objects
+[2025-10-22 13:31:14.698] DISPLAY: Showing 3 pipes
+[2025-10-22 13:31:14.707] DISPLAY: No stations to display
+[2025-10-22 13:31:24.185] INPUT: Integer input - prompt: 'Enter your choice: ', value: 1
+[2025-10-22 13:31:24.185] MENU: User selected option 1
+[2025-10-22 13:31:25.760] INPUT: String input - prompt: 'Enter pipe name: ', value: 'вапрол'
+[2025-10-22 13:31:26.329] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 45.000000
+[2025-10-22 13:31:26.990] INPUT: Integer input - prompt: 'Enter pipe diameter (mm): ', value: 14
+[2025-10-22 13:31:27.799] INPUT: String input - prompt: 'Is pipe on repair? (0 - no, 1 - yes): ', value: '0'
+[2025-10-22 13:31:27.800] INPUT: Boolean input - prompt: 'Is pipe on repair?', value: false
+[2025-10-22 13:31:27.800] PIPE CREATED - ID: 4, Name: 'вапрол', Length: 45.000000km, Diameter: 14mm, Repair: no
+[2025-10-22 13:31:27.800] ACTION: Added new pipe - Total pipes: 4
+[2025-10-22 13:31:34.464] INPUT: Integer input - prompt: 'Enter your choice: ', value: 3
+[2025-10-22 13:31:34.464] MENU: User selected option 3
+[2025-10-22 13:31:34.465] ACTION: Displaying all objects
+[2025-10-22 13:31:34.465] DISPLAY: Showing 4 pipes
+[2025-10-22 13:31:34.471] DISPLAY: No stations to display
+[2025-10-25 11:11:57.787] PROGRAM STARTED
+[2025-10-25 11:12:28.432] INPUT: Integer input - prompt: 'Enter your choice: ', value: 1
+[2025-10-25 11:12:28.432] MENU: User selected option 1
+[2025-10-25 11:12:31.595] INPUT: String input - prompt: 'Enter pipe name: ', value: '123'
+[2025-10-25 11:12:32.466] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 12.000000
+[2025-10-25 11:12:33.416] INPUT: Integer input - prompt: 'Enter pipe diameter (mm): ', value: 123
+[2025-10-25 11:12:35.627] INPUT: String input - prompt: 'Is pipe on repair? (0 - no, 1 - yes): ', value: '0'
+[2025-10-25 11:12:35.628] INPUT: Boolean input - prompt: 'Is pipe on repair?', value: false
+[2025-10-25 11:12:35.628] PIPE CREATED - ID: 1, Name: '123', Length: 12.000000km, Diameter: 123mm, Repair: no
+[2025-10-25 11:12:35.628] ACTION: Added new pipe - Total pipes: 1
+[2025-10-25 11:12:38.361] INPUT: Integer input - prompt: 'Enter your choice: ', value: 3
+[2025-10-25 11:12:38.362] MENU: User selected option 3
+[2025-10-25 11:12:38.362] ACTION: Displaying all objects
+[2025-10-25 11:12:38.363] DISPLAY: Showing 1 pipes
+[2025-10-25 11:12:38.365] DISPLAY: No stations to display
+[2025-10-25 11:12:41.805] INPUT: Integer input - prompt: 'Enter your choice: ', value: 8
+[2025-10-25 11:12:41.805] MENU: User selected option 8
+[2025-10-25 11:12:41.806] ACTION: Starting batch pipe edit
+[2025-10-25 11:12:46.725] INPUT: Integer input - prompt: 'Enter choice: ', value: 1
+[2025-10-25 11:12:48.789] INPUT ERROR: Invalid integer input - prompt: Enter choice: 
+[2025-10-25 11:12:52.093] INPUT ERROR: Invalid integer input - prompt: Enter choice: 
+[2025-10-25 11:12:56.118] INPUT: Integer input - prompt: 'Enter choice: ', value: 1
+[2025-10-25 11:12:57.359] INPUT: String input - prompt: 'Enter name to search: ', value: '123'
+[2025-10-25 11:12:57.360] SEARCH PIPES BY NAME: '123' - Found 1 pipes
+[2025-10-25 11:12:57.360] BATCH EDIT: Starting batch edit for 1 pipes
+[2025-10-25 11:13:04.134] INPUT: Integer input - prompt: 'Enter your choice: ', value: 3
+[2025-10-25 11:13:04.135] BATCH EDIT - Pipe ID: 1 marked for deletion
+[2025-10-25 11:13:04.135] BATCH EDIT - Deleted 1 pipes
+[2025-11-01 17:16:45.271] PROGRAM STARTED

@@ -25,7 +25,7 @@ bool Pipe::getRepair() const { return repair; }
 
 // ћетод дл€ вывода информации о трубе
 void Pipe::display() const {
-    std::cout << "=== Pipe parameters ===" << std::endl;
+    std::cout << "Pipe parameters" << std::endl;
     std::cout << "ID: " << id << std::endl;
     std::cout << "Name: " << name << std::endl;
     std::cout << "Length: " << length << " km" << std::endl;
@@ -33,7 +33,7 @@ void Pipe::display() const {
     std::cout << "On repair: " << (repair ? "yes" : "no") << std::endl;
 }
 
-// —татический метод дл€ получени€ следующего ID
+// метод дл€ получени€ следующего ID
 int Pipe::getNextId() {
     return nextId;
 }

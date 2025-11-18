@@ -2,13 +2,13 @@
 #include <iostream>
 #include <sstream>
 
-// Функция для очистки потока ввода
+//очисткa потока ввода
 void clearInput() {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-// Функция для ввода целого числа с проверкой
+//ввод целого числа
 int inputInt(const std::string& prompt, int minVal, int maxVal) {
     int value;
     while (true) {
@@ -20,14 +20,14 @@ int inputInt(const std::string& prompt, int minVal, int maxVal) {
             clearInput();
         }
         else {
-            clearInput(); // Очищаем буфер после успешного ввода числа
+            clearInput();
             logAction("INPUT: Integer input - prompt: '" + prompt + "', value: " + std::to_string(value));
             return value;
         }
     }
 }
 
-// Функция для ввода дробного числа с проверкой
+//ввод дробного числа
 float inputFloat(const std::string& prompt, float minVal, float maxVal) {
     float value;
     while (true) {
@@ -39,14 +39,14 @@ float inputFloat(const std::string& prompt, float minVal, float maxVal) {
             clearInput();
         }
         else {
-            clearInput(); // Очищаем буфер после успешного ввода числа
+            clearInput();
             logAction("INPUT: Float input - prompt: '" + prompt + "', value: " + std::to_string(value));
             return value;
         }
     }
 }
 
-// Функция для ввода строки с помощью getline
+//ввод строки
 std::string inputString(const std::string& prompt) {
     std::string value;
     std::cout << prompt;
@@ -55,7 +55,7 @@ std::string inputString(const std::string& prompt) {
     return value;
 }
 
-// Функция для ввода булевого значения
+//ввод булевого значения
 bool inputBool(const std::string& prompt) {
     while (true) {
         std::string input = inputString(prompt + " (0 - no, 1 - yes): ");
@@ -72,14 +72,14 @@ bool inputBool(const std::string& prompt) {
     }
 }
 
-// Функция для получения текущего времени в виде строки
+//получениe текущего времени
 std::string getCurrentTime() {
     auto now = std::chrono::system_clock::now();
     auto time_t = std::chrono::system_clock::to_time_t(now);
 
     std::stringstream ss;
 
-    // Безопасная версия для localtime
+    //localtime
 #ifdef _WIN32
     struct tm timeinfo;
     localtime_s(&timeinfo, &time_t);
@@ -95,7 +95,7 @@ std::string getCurrentTime() {
     return ss.str();
 }
 
-// Функция для логирования
+//логирования
 void logAction(const std::string& action) {
     std::ofstream logFile("log.txt", std::ios::app);
     if (logFile.is_open()) {
@@ -104,7 +104,7 @@ void logAction(const std::string& action) {
     }
 }
 
-// Функция для разделения строки
+//разделения строки
 std::vector<std::string> splitString(const std::string& str, char delimiter) {
     std::vector<std::string> result;
     std::stringstream ss(str);
