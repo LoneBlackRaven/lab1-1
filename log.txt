@@ -345,3 +345,142 @@ Program exited
 [2025-10-25 11:13:04.135] BATCH EDIT - Pipe ID: 1 marked for deletion
 [2025-10-25 11:13:04.135] BATCH EDIT - Deleted 1 pipes
 [2025-11-01 17:16:45.271] PROGRAM STARTED
+[2025-11-18 19:29:21.074] PROGRAM STARTED
+[2025-11-18 19:36:28.160] PROGRAM STARTED
+[2025-11-18 19:46:44.628] PROGRAM STARTED
+[2025-11-18 20:10:31.133] PROGRAM STARTED
+[2025-11-18 20:10:33.590] INPUT: Integer input - prompt: 'Choose option: ', value: 1
+[2025-11-18 20:10:33.590] MENU: User selected option 1
+[2025-11-18 20:10:35.859] INPUT: String input - prompt: 'Enter the name: ', value: '125'
+[2025-11-18 20:10:36.927] INPUT: Float input - prompt: 'Enter lenght (km): ', value: 2656.000000
+[2025-11-18 20:10:37.551] INPUT: Integer input - prompt: 'Enter diametr (mm): ', value: 5616
+[2025-11-18 20:10:38.121] INPUT: String input - prompt: 'Is it on repair? (0 - no, 1 - yes): ', value: '1'
+[2025-11-18 20:10:38.121] INPUT: Boolean input - prompt: 'Is it on repair?', value: true
+[2025-11-18 20:10:38.121] PIPE CREATED - ID: 1, Name: '125', Length: 2656.000000km, Diameter: 5616mm, Repair: yes
+[2025-11-18 20:10:38.122] ACTION: Added new pipe ID 1
+[2025-11-18 20:10:42.711] INPUT: Integer input - prompt: 'Choose option: ', value: 12
+[2025-11-18 20:10:42.712] MENU: User selected option 12
+[2025-11-18 20:10:48.580] INPUT: Integer input - prompt: 'Choose option: ', value: 2
+[2025-11-18 20:10:48.581] MENU: User selected option 2
+[2025-11-18 20:10:50.911] INPUT: String input - prompt: 'Enter name: ', value: 'qwer'
+[2025-11-18 20:10:52.021] INPUT: Integer input - prompt: 'Enter cuantity: ', value: 456
+[2025-11-18 20:10:53.245] INPUT: Integer input - prompt: 'Enter cuantity of working: ', value: 2
+[2025-11-18 20:10:59.980] INPUT: String input - prompt: 'Enter classification: ', value: 'hbnjmkl'
+[2025-11-18 20:11:01.943] INPUT: String input - prompt: 'Is it working? (0 - no, 1 - yes): ', value: '1'
+[2025-11-18 20:11:01.944] INPUT: Boolean input - prompt: 'Is it working?', value: true
+[2025-11-18 20:11:01.944] STATION CREATED - ID: 1, Name: 'qwer', Total: 456, Working: 2, Classification: 'hbnjmkl', Working: yes
+[2025-11-18 20:11:01.944] ACTION: Added new station ID 1
+[2025-11-18 20:11:04.545] INPUT: Integer input - prompt: 'Choose option: ', value: 2
+[2025-11-18 20:11:04.546] MENU: User selected option 2
+[2025-11-18 20:11:06.218] INPUT: String input - prompt: 'Enter name: ', value: 'dfgghj'
+[2025-11-18 20:11:07.176] INPUT: Integer input - prompt: 'Enter cuantity: ', value: 456
+[2025-11-18 20:11:07.917] INPUT: Integer input - prompt: 'Enter cuantity of working: ', value: 47
+[2025-11-18 20:11:10.449] INPUT: String input - prompt: 'Enter classification: ', value: '1;'
+[2025-11-18 20:11:11.497] INPUT: String input - prompt: 'Is it working? (0 - no, 1 - yes): ', value: '1'
+[2025-11-18 20:11:11.497] INPUT: Boolean input - prompt: 'Is it working?', value: true
+[2025-11-18 20:11:11.498] STATION CREATED - ID: 3, Name: 'dfgghj', Total: 456, Working: 47, Classification: '1;', Working: yes
+[2025-11-18 20:11:11.498] ACTION: Added new station ID 2
+[2025-11-18 20:11:14.280] INPUT: Integer input - prompt: 'Choose option: ', value: 12
+[2025-11-18 20:11:14.281] MENU: User selected option 12
+[2025-11-18 20:11:19.763] INPUT: Integer input - prompt: 'Choose option: ', value: 2
+[2025-11-18 20:11:19.764] MENU: User selected option 2
+[2025-11-18 20:11:21.609] INPUT: String input - prompt: 'Enter name: ', value: 'ertyuio'
+[2025-11-18 20:11:22.810] INPUT: Integer input - prompt: 'Enter cuantity: ', value: 564156
+[2025-11-18 20:11:23.950] INPUT: Integer input - prompt: 'Enter cuantity of working: ', value: 56165
+[2025-11-18 20:11:25.912] INPUT: String input - prompt: 'Enter classification: ', value: 'jkl'
+[2025-11-18 20:11:26.888] INPUT: String input - prompt: 'Is it working? (0 - no, 1 - yes): ', value: '1'
+[2025-11-18 20:11:26.889] INPUT: Boolean input - prompt: 'Is it working?', value: true
+[2025-11-18 20:11:26.889] STATION CREATED - ID: 5, Name: 'ertyuio', Total: 564156, Working: 56165, Classification: 'jkl', Working: yes
+[2025-11-18 20:11:26.890] ACTION: Added new station ID 3
+[2025-11-18 20:11:28.565] INPUT: Integer input - prompt: 'Choose option: ', value: 2
+[2025-11-18 20:11:28.565] MENU: User selected option 2
+[2025-11-18 20:11:30.385] INPUT: String input - prompt: 'Enter name: ', value: 'dfghjkl;'
+[2025-11-18 20:11:32.546] INPUT: Integer input - prompt: 'Enter cuantity: ', value: 789654123
+[2025-11-18 20:11:34.433] INPUT: Integer input - prompt: 'Enter cuantity of working: ', value: 123654789
+[2025-11-18 20:11:36.981] INPUT: String input - prompt: 'Enter classification: ', value: 'njkl'
+[2025-11-18 20:11:39.174] INPUT: String input - prompt: 'Is it working? (0 - no, 1 - yes): ', value: '1'
+[2025-11-18 20:11:39.175] INPUT: Boolean input - prompt: 'Is it working?', value: true
+[2025-11-18 20:11:39.175] STATION CREATED - ID: 7, Name: 'dfghjkl;', Total: 789654123, Working: 123654789, Classification: 'njkl', Working: yes
+[2025-11-18 20:11:39.175] ACTION: Added new station ID 4
+[2025-11-18 20:11:44.585] INPUT: Integer input - prompt: 'Choose option: ', value: 9
+[2025-11-18 20:11:44.586] MENU: User selected option 9
+[2025-11-18 20:11:48.960] INPUT: Integer input - prompt: 'Select ID of the first CS: ', value: 1
+[2025-11-18 20:11:50.709] INPUT: Integer input - prompt: 'Select ID of the last ÊÑ: ', value: 3
+[2025-11-18 20:11:57.189] INPUT: Integer input - prompt: 'Choose option: ', value: 9
+[2025-11-18 20:11:57.190] MENU: User selected option 9
+[2025-11-18 20:11:59.441] INPUT: Integer input - prompt: 'Select ID of the first CS: ', value: 3
+[2025-11-18 20:12:00.270] INPUT: Integer input - prompt: 'Select ID of the last ÊÑ: ', value: 4
+[2025-11-18 20:12:03.436] INPUT: Integer input - prompt: 'Choose option: ', value: 12
+[2025-11-18 20:12:03.437] MENU: User selected option 12
+[2025-11-18 20:12:34.336] PROGRAM STARTED
+[2025-11-18 20:12:36.981] INPUT: Integer input - prompt: 'Choose option: ', value: 2
+[2025-11-18 20:12:36.981] MENU: User selected option 2
+[2025-11-18 20:12:38.855] INPUT: String input - prompt: 'Enter name: ', value: '«¤¦í'
+[2025-11-18 20:12:40.660] INPUT: Integer input - prompt: 'Enter cuantity: ', value: 456321
+[2025-11-18 20:12:41.960] INPUT: Integer input - prompt: 'Enter cuantity of working: ', value: 123654
+[2025-11-18 20:12:43.502] INPUT: String input - prompt: 'Enter classification: ', value: '¤¦í'
+[2025-11-18 20:12:45.454] INPUT: String input - prompt: 'Is it working? (0 - no, 1 - yes): ', value: '0'
+[2025-11-18 20:12:45.455] INPUT: Boolean input - prompt: 'Is it working?', value: false
+[2025-11-18 20:12:45.455] STATION CREATED - ID: 1, Name: '«¤¦í', Total: 456321, Working: 123654, Classification: '¤¦í', Working: no
+[2025-11-18 20:12:45.455] ACTION: Added new station ID 1
+[2025-11-18 20:12:50.049] INPUT: Integer input - prompt: 'Choose option: ', value: 2
+[2025-11-18 20:12:50.050] MENU: User selected option 2
+[2025-11-18 20:12:51.783] INPUT: String input - prompt: 'Enter name: ', value: '¯à®«¤¦'
+[2025-11-18 20:12:54.312] INPUT: Integer input - prompt: 'Enter cuantity: ', value: 123654789
+[2025-11-18 20:12:55.638] INPUT: Integer input - prompt: 'Enter cuantity of working: ', value: 456321
+[2025-11-18 20:12:57.287] INPUT: String input - prompt: 'Enter classification: ', value: '«¤¦í'
+[2025-11-18 20:12:58.952] INPUT: String input - prompt: 'Is it working? (0 - no, 1 - yes): ', value: '1'
+[2025-11-18 20:12:58.952] INPUT: Boolean input - prompt: 'Is it working?', value: true
+[2025-11-18 20:12:58.952] STATION CREATED - ID: 3, Name: '¯à®«¤¦', Total: 123654789, Working: 456321, Classification: '«¤¦í', Working: yes
+[2025-11-18 20:12:58.953] ACTION: Added new station ID 2
+[2025-11-18 20:13:00.607] INPUT: Integer input - prompt: 'Choose option: ', value: 2
+[2025-11-18 20:13:00.608] MENU: User selected option 2
+[2025-11-18 20:13:01.316] INPUT: String input - prompt: 'Enter name: ', value: '¯à®«¤¦'
+[2025-11-18 20:13:05.128] INPUT: Integer input - prompt: 'Enter cuantity: ', value: 789456
+[2025-11-18 20:13:06.284] INPUT: Integer input - prompt: 'Enter cuantity of working: ', value: 123654
+[2025-11-18 20:13:07.690] INPUT: String input - prompt: 'Enter classification: ', value: '«¤¦'
+[2025-11-18 20:13:09.027] INPUT: String input - prompt: 'Is it working? (0 - no, 1 - yes): ', value: '1'
+[2025-11-18 20:13:09.028] INPUT: Boolean input - prompt: 'Is it working?', value: true
+[2025-11-18 20:13:09.028] STATION CREATED - ID: 5, Name: '¯à®«¤¦', Total: 789456, Working: 123654, Classification: '«¤¦', Working: yes
+[2025-11-18 20:13:09.028] ACTION: Added new station ID 3
+[2025-11-18 20:13:10.193] INPUT: Integer input - prompt: 'Choose option: ', value: 2
+[2025-11-18 20:13:10.193] MENU: User selected option 2
+[2025-11-18 20:13:13.931] INPUT: String input - prompt: 'Enter name: ', value: '¢ ¯à®«¤'
+[2025-11-18 20:13:16.188] INPUT: Integer input - prompt: 'Enter cuantity: ', value: 123654789
+[2025-11-18 20:13:17.523] INPUT: Integer input - prompt: 'Enter cuantity of working: ', value: 789654
+[2025-11-18 20:13:18.794] INPUT: String input - prompt: 'Enter classification: ', value: '®«¤¦í'
+[2025-11-18 20:13:20.487] INPUT: String input - prompt: 'Is it working? (0 - no, 1 - yes): ', value: '0'
+[2025-11-18 20:13:20.487] INPUT: Boolean input - prompt: 'Is it working?', value: false
+[2025-11-18 20:13:20.488] STATION CREATED - ID: 7, Name: '¢ ¯à®«¤', Total: 123654789, Working: 789654, Classification: '®«¤¦í', Working: no
+[2025-11-18 20:13:20.488] ACTION: Added new station ID 4
+[2025-11-18 20:13:22.967] INPUT: Integer input - prompt: 'Choose option: ', value: 9
+[2025-11-18 20:13:22.968] MENU: User selected option 9
+[2025-11-18 20:13:25.089] INPUT: Integer input - prompt: 'Select ID of the first CS: ', value: 1
+[2025-11-18 20:13:25.822] INPUT: Integer input - prompt: 'Select ID of the last ÊÑ: ', value: 2
+[2025-11-18 20:13:33.479] INPUT: Integer input - prompt: 'Choose option: ', value: 1
+[2025-11-18 20:13:33.480] MENU: User selected option 1
+[2025-11-18 20:13:35.758] INPUT: String input - prompt: 'Enter the name: ', value: '¢ ¯à®«¤¦'
+[2025-11-18 20:13:37.200] INPUT: Float input - prompt: 'Enter lenght (km): ', value: 1456.000000
+[2025-11-18 20:13:38.252] INPUT: Integer input - prompt: 'Enter diametr (mm): ', value: 12
+[2025-11-18 20:13:40.214] INPUT: String input - prompt: 'Is it on repair? (0 - no, 1 - yes): ', value: '0'
+[2025-11-18 20:13:40.214] INPUT: Boolean input - prompt: 'Is it on repair?', value: false
+[2025-11-18 20:13:40.215] PIPE CREATED - ID: 1, Name: '¢ ¯à®«¤¦', Length: 1456.000000km, Diameter: 12mm, Repair: no
+[2025-11-18 20:13:40.215] ACTION: Added new pipe ID 1
+[2025-11-18 20:13:43.687] INPUT: Integer input - prompt: 'Choose option: ', value: 1
+[2025-11-18 20:13:43.687] MENU: User selected option 1
+[2025-11-18 20:13:45.598] INPUT: String input - prompt: 'Enter the name: ', value: '¯ ¢ãª¥­£èé§'
+[2025-11-18 20:13:47.319] INPUT: Float input - prompt: 'Enter lenght (km): ', value: 123654.000000
+[2025-11-18 20:13:48.402] INPUT: Integer input - prompt: 'Enter diametr (mm): ', value: 456321
+[2025-11-18 20:13:49.604] INPUT: String input - prompt: 'Is it on repair? (0 - no, 1 - yes): ', value: '0'
+[2025-11-18 20:13:49.604] INPUT: Boolean input - prompt: 'Is it on repair?', value: false
+[2025-11-18 20:13:49.605] PIPE CREATED - ID: 3, Name: '¯ ¢ãª¥­£èé§', Length: 123654.000000km, Diameter: 456321mm, Repair: no
+[2025-11-18 20:13:49.605] ACTION: Added new pipe ID 2
+[2025-11-18 20:13:52.906] INPUT: Integer input - prompt: 'Choose option: ', value: 9
+[2025-11-18 20:13:52.907] MENU: User selected option 9
+[2025-11-18 20:13:55.073] INPUT: Integer input - prompt: 'Select ID of the first CS: ', value: 1
+[2025-11-18 20:13:55.885] INPUT: Integer input - prompt: 'Select ID of the last ÊÑ: ', value: 2
+[2025-11-18 20:14:02.823] INPUT: Integer input - prompt: 'Select pipes ID to connection: ', value: 2
+[2025-11-18 20:14:02.824] CONNECTION CREATED - From KS 1 to KS 2 via Pipe 2
+[2025-11-18 20:15:14.177] INPUT: Integer input - prompt: 'Choose option: ', value: 0
+[2025-11-18 20:15:14.178] MENU: User selected option 0
+[2025-11-18 20:15:14.178] PROGRAM EXIT

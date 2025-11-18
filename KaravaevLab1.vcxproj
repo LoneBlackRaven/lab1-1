@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="connection.cpp" />
     <ClCompile Include="cs.cpp" />
     <ClCompile Include="KaravaevLab1.cpp" />
     <ClCompile Include="menu.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="connection.h" />
     <ClInclude Include="cs.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="pipe.h" />
