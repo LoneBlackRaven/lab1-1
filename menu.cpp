@@ -7,13 +7,13 @@
 #include <sstream>
 #include <map>
 
-// Ввод трубы
+// Input pipe
 Pipe inputPipeData() {
-    std::cout << "Input pipe data:" << std::endl;
-    std::string name = inputString("Enter the name: ");
-    float length = inputFloat("Enter lenght (km): ", 0.0f);
-    int diametr = inputInt("Enter diametr (mm): ", 1);
-    bool repair = inputBool("Is it on repair?");
+    std::cout << "Enter pipe data" << std::endl;
+    std::string name = inputString("Enter pipe name: ");
+    float length = inputFloat("Enter pipe length (km): ", 0.0f);
+    int diametr = inputInt("Enter pipe diameter (mm): ", 1);
+    bool repair = inputBool("Is pipe under repair?");
 
     Pipe pipe(name, length, diametr, repair);
     logAction("PIPE CREATED - ID: " + std::to_string(pipe.getId()) +
@@ -23,14 +23,14 @@ Pipe inputPipeData() {
     return pipe;
 }
 
-// Ввод КС
+// Input CS
 Compress inputCompressData() {
-    std::cout << "Enter CS data " << std::endl;
-    std::string name = inputString("Enter name: ");
-    int count = inputInt("Enter cuantity: ", 1);
-    int count_working = inputInt("Enter cuantity of working: ", 0, count);
+    std::cout << "Enter CS data" << std::endl;
+    std::string name = inputString("Enter CS name: ");
+    int count = inputInt("Enter number of workshops: ", 1);
+    int count_working = inputInt("Enter number of working workshops: ", 0, count);
     std::string classification = inputString("Enter classification: ");
-    bool working = inputBool("Is it working?");
+    bool working = inputBool("Is CS working?");
 
     Compress compress(name, count, count_working, classification, working);
     logAction("STATION CREATED - ID: " + std::to_string(compress.getId()) +
@@ -41,10 +41,10 @@ Compress inputCompressData() {
     return compress;
 }
 
-// Отображение труб
+// Display pipes
 void displayAllPipes(const std::map<int, Pipe>& pipes) {
     if (pipes.empty()) {
-        std::cout << "Nothing founded." << std::endl;
+        std::cout << "No pipes available." << std::endl;
         logAction("DISPLAY: No pipes to display");
         return;
     }
@@ -57,7 +57,7 @@ void displayAllPipes(const std::map<int, Pipe>& pipes) {
     }
 }
 
-// Поиск по имени
+// Search by name
 std::vector<int> findPipesByName(const std::map<int, Pipe>& pipes, const std::string& name) {
     std::vector<int> result;
     for (const auto& pipe : pipes) {
@@ -69,7 +69,7 @@ std::vector<int> findPipesByName(const std::map<int, Pipe>& pipes, const std::st
     return result;
 }
 
-// Поиск по ремонту
+// Search by repair status
 std::vector<int> findPipesByRepairStatus(const std::map<int, Pipe>& pipes, bool repairStatus) {
     std::vector<int> result;
     for (const auto& pipe : pipes) {
@@ -82,21 +82,21 @@ std::vector<int> findPipesByRepairStatus(const std::map<int, Pipe>& pipes, bool 
     return result;
 }
 
-// Пакетное редактирование
+// Batch editing
 void batchEditPipes(std::map<int, Pipe>& pipes, const std::unordered_set<int>& pipeIds) {
     if (pipeIds.empty()) {
-        std::cout << "No pipes selected." << std::endl;
+        std::cout << "No pipes selected for editing." << std::endl;
         logAction("BATCH EDIT: No pipes selected");
         return;
     }
 
     logAction("BATCH EDIT: Starting batch edit for " + std::to_string(pipeIds.size()) + " pipes");
-    std::cout << "Batch edit " << pipeIds.size() << " pipes." << std::endl;
+    std::cout << "Batch editing " << pipeIds.size() << " pipes." << std::endl;
 
-    // Варианты
-    std::cout << "Choose the redaction:\n";
+    // Options
+    std::cout << "Choose what to edit:\n";
     std::cout << "1. Change repair status\n";
-    std::cout << "2. Change diametr\n";
+    std::cout << "2. Change diameter\n";
     std::cout << "3. Delete pipes\n";
 
     int choice = inputInt("Enter your choice: ", 1, 3);
@@ -112,7 +112,7 @@ void batchEditPipes(std::map<int, Pipe>& pipes, const std::unordered_set<int>& p
                 break;
             }
             case 2: {
-                int newDiameter = inputInt("Enter new pipe diametr ID " +
+                int newDiameter = inputInt("Enter new diameter for pipe ID " +
                     std::to_string(pipe.first) + ": ", 1);
                 pipe.second.setDiametr(newDiameter);
                 logAction("BATCH EDIT - Pipe ID: " + std::to_string(pipe.first) +
@@ -127,7 +127,7 @@ void batchEditPipes(std::map<int, Pipe>& pipes, const std::unordered_set<int>& p
         }
     }
 
-    // Удаление труб
+    // Delete pipes
     if (choice == 3) {
         for (auto it = pipes.begin(); it != pipes.end(); ) {
             if (pipeIds.count(it->first)) {
@@ -138,14 +138,14 @@ void batchEditPipes(std::map<int, Pipe>& pipes, const std::unordered_set<int>& p
             }
         }
         logAction("BATCH EDIT - Deleted " + std::to_string(pipeIds.size()) + " pipes");
-        std::cout << "Pipes deleted sucsessfully." << std::endl;
+        std::cout << "Pipes successfully deleted." << std::endl;
     }
 }
 
-// Отображение КС
+// Display CS
 void displayAllCompressStations(const std::map<int, Compress>& stations) {
     if (stations.empty()) {
-        std::cout << "CS not found." << std::endl;
+        std::cout << "No compressor stations available." << std::endl;
         logAction("DISPLAY: No stations to display");
         return;
     }
@@ -158,7 +158,7 @@ void displayAllCompressStations(const std::map<int, Compress>& stations) {
     }
 }
 
-// Поиск КС по имени
+// Search CS by name
 std::vector<int> findStationsByName(const std::map<int, Compress>& stations, const std::string& name) {
     std::vector<int> result;
     for (const auto& station : stations) {
@@ -170,7 +170,7 @@ std::vector<int> findStationsByName(const std::map<int, Compress>& stations, con
     return result;
 }
 
-// Поиск КС по цехам
+// Search CS by workshops
 std::vector<int> findStationsByUnusedPercentage(const std::map<int, Compress>& stations, double minPercentage) {
     std::vector<int> result;
     for (const auto& station : stations) {
@@ -183,88 +183,134 @@ std::vector<int> findStationsByUnusedPercentage(const std::map<int, Compress>& s
     return result;
 }
 
-// Функция для создания соединения
-void createConnection(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std::vector<Connection>& connections) {
+// Function to create connection
+void createConnection(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std::vector<Connection>& connections, int& nextPipeId) {
     if (stations.size() < 2) {
-        std::cout << "Not enough CS for association." << std::endl;
+        std::cout << "Not enough compressor stations to create connection (minimum 2 required)." << std::endl;
         return;
     }
 
-    std::cout << "Creating connection:" << std::endl;
+    std::cout << "Creating connection between CS:" << std::endl;
 
-    // Показать доступные КС
-    std::cout << "Available CS:" << std::endl;
+    // Show available CS
+    std::cout << "Available compressor stations:" << std::endl;
     for (const auto& station : stations) {
         std::cout << "ID: " << station.first << " - " << station.second.getName() << std::endl;
     }
 
-    // Выбор начальной КС
-    int start_id = inputInt("Select ID of the first CS: ");
+    // Select start CS
+    int start_id = inputInt("Enter start CS ID: ");
     if (stations.find(start_id) == stations.end()) {
-        std::cout << "CS with ID " << start_id << " bot found." << std::endl;
+        std::cout << "CS with ID " << start_id << " not found." << std::endl;
         return;
     }
 
-    // Выбор конечной КС
-    int stop_id = inputInt("Select ID of the last КС: ");
+    // Select end CS
+    int stop_id = inputInt("Enter end CS ID: ");
     if (stations.find(stop_id) == stations.end()) {
         std::cout << "CS with ID " << stop_id << " not found." << std::endl;
         return;
     }
 
     if (start_id == stop_id) {
-        std::cout << "First and last CS cant be identical." << std::endl;
+        std::cout << "Start and end CS cannot be the same." << std::endl;
         return;
     }
 
-    // Проверка на существующее соединение
+    // Check for existing connection
     for (const auto& conn : connections) {
         if ((conn.start_id == start_id && conn.stop_id == stop_id) ||
             (conn.start_id == stop_id && conn.stop_id == start_id)) {
-            std::cout << "Connection of CS already excist." << std::endl;
+            std::cout << "Connection between these CS already exists." << std::endl;
             return;
         }
     }
 
-    // Выбор трубы
-    std::cout << "Available pipes:" << std::endl;
+    // Request pipe diameter
+    std::cout << "\nEnter pipe diameter for connection (500, 700, 1000, 1400 mm): ";
+    int requiredDiameter = inputInt("Diameter: ");
+
+    // Check valid diameters
+    if (requiredDiameter != 500 && requiredDiameter != 700 && requiredDiameter != 1000 && requiredDiameter != 1400) {
+        std::cout << "Invalid diameter! Use: 500, 700, 1000 or 1400 mm." << std::endl;
+        return;
+    }
+
+    // Search for available pipes with required diameter
     std::vector<int> availablePipes;
+    std::cout << "\nSearching for pipes with diameter " << requiredDiameter << " mm..." << std::endl;
+
     for (const auto& pipe : pipes) {
-        if (!pipe.second.getRepair()) {
-            std::cout << "ID: " << pipe.first << " - " << pipe.second.getName()
-                << " (diametr: " << pipe.second.getDiametr() << " mm)" << std::endl;
+        if (!pipe.second.getRepair() && pipe.second.getDiametr() == requiredDiameter) {
             availablePipes.push_back(pipe.first);
         }
     }
 
+    int pipe_id = -1;
+
     if (availablePipes.empty()) {
-        std::cout << "Not enough available pipes." << std::endl;
-        return;
+        // No pipe with required diameter - create new one
+        std::cout << "No pipes with diameter " << requiredDiameter << " mm found." << std::endl;
+        std::cout << "Proceeding to create new pipe..." << std::endl;
+
+        // Create new pipe with required diameter
+        std::cout << "\nCreating new pipe with diameter " << requiredDiameter << " mm:" << std::endl;
+        std::string name = inputString("Enter pipe name: ");
+        float length = inputFloat("Enter pipe length (km): ", 0.0f);
+
+        // Create pipe with automatically set diameter
+        Pipe newPipe(name, length, requiredDiameter, false);
+        pipe_id = nextPipeId;
+        pipes[pipe_id] = newPipe;
+        nextPipeId++;
+
+        logAction("PIPE CREATED FOR CONNECTION - ID: " + std::to_string(pipe_id) +
+            ", Name: '" + name + "', Length: " + std::to_string(length) +
+            "km, Diameter: " + std::to_string(requiredDiameter) + "mm");
+
+        std::cout << "Created new pipe with ID: " << pipe_id << std::endl;
+    }
+    else {
+        // Show available pipes and select one
+        std::cout << "\nFound following pipes with diameter " << requiredDiameter << " mm:" << std::endl;
+        for (int pipeId : availablePipes) {
+            auto pipeIt = pipes.find(pipeId);
+            if (pipeIt != pipes.end()) {
+                std::cout << "ID: " << pipeId << " - " << pipeIt->second.getName()
+                    << " (length: " << pipeIt->second.getLength() << " km)" << std::endl;
+            }
+        }
+
+        // Select pipe
+        while (true) {
+            pipe_id = inputInt("\nEnter pipe ID for connection: ");
+            if (std::find(availablePipes.begin(), availablePipes.end(), pipe_id) != availablePipes.end()) {
+                break;
+            }
+            std::cout << "Pipe with ID " << pipe_id << " not available or not found. Please try again." << std::endl;
+        }
+
+        std::cout << "Selected pipe ID: " << pipe_id << std::endl;
     }
 
-    int pipe_id = inputInt("Select pipes ID to connection: ");
-    if (std::find(availablePipes.begin(), availablePipes.end(), pipe_id) == availablePipes.end()) {
-        std::cout << "Pipe with ID " << pipe_id << " not available or doesnt excist." << std::endl;
-        return;
-    }
-
-    // Создание соединения
+    // Create connection
     Connection newConnection(start_id, stop_id, pipe_id);
     connections.push_back(newConnection);
 
-    logAction("CONNECTION CREATED - From KS " + std::to_string(start_id) +
-        " to KS " + std::to_string(stop_id) + " via Pipe " + std::to_string(pipe_id));
-    std::cout << "Connection created sucsessfully!" << std::endl;
+    logAction("CONNECTION CREATED - From CS " + std::to_string(start_id) +
+        " to CS " + std::to_string(stop_id) + " via Pipe " + std::to_string(pipe_id));
+    std::cout << "\nConnection successfully created!" << std::endl;
+    std::cout << "CS " << start_id << " -> CS " << stop_id << " via pipe " << pipe_id << std::endl;
 }
 
-// Функция для отображения соединений
+// Function to display connections
 void displayConnections(const std::vector<Connection>& connections, const std::map<int, Pipe>& pipes, const std::map<int, Compress>& stations) {
     if (connections.empty()) {
         std::cout << "No connections." << std::endl;
         return;
     }
 
-    std::cout << "Connections:" << std::endl;
+    std::cout << "CONNECTIONS:" << std::endl;
     std::cout << std::string(60, '-') << std::endl;
 
     for (const auto& conn : connections) {
@@ -273,27 +319,27 @@ void displayConnections(const std::vector<Connection>& connections, const std::m
         auto pipe = pipes.find(conn.pipe_id);
 
         if (start_station != stations.end() && stop_station != stations.end() && pipe != pipes.end()) {
-            std::cout << "КС \"" << start_station->second.getName() << "\" (ID: " << conn.start_id << ")"
-                << " -> КС \"" << stop_station->second.getName() << "\" (ID: " << conn.stop_id << ")"
-                << " через трубу \"" << pipe->second.getName() << "\" (ID: " << conn.pipe_id << ")" << std::endl;
+            std::cout << "CS \"" << start_station->second.getName() << "\" (ID: " << conn.start_id << ")"
+                << " -> CS \"" << stop_station->second.getName() << "\" (ID: " << conn.stop_id << ")"
+                << " via pipe \"" << pipe->second.getName() << "\" (ID: " << conn.pipe_id << ")" << std::endl;
         }
     }
 }
 
-// Функция для удаления соединения
+// Function to delete connection
 void deleteConnection(std::vector<Connection>& connections) {
     if (connections.empty()) {
         std::cout << "No connections to delete." << std::endl;
         return;
     }
 
-    std::cout << "List od connections:" << std::endl;
+    std::cout << "Connection list:" << std::endl;
     for (size_t i = 0; i < connections.size(); ++i) {
         std::cout << (i + 1) << ". CS " << connections[i].start_id << " -> CS " << connections[i].stop_id
             << " (Pipe " << connections[i].pipe_id << ")" << std::endl;
     }
 
-    int connection_index = inputInt("Enter number to connect or delete (0 to decline): ", 0, connections.size());
+    int connection_index = inputInt("Enter connection number to delete (0 to cancel): ", 0, connections.size());
     if (connection_index == 0) {
         return;
     }
@@ -302,43 +348,43 @@ void deleteConnection(std::vector<Connection>& connections) {
         Connection removed = connections[connection_index - 1];
         connections.erase(connections.begin() + connection_index - 1);
 
-        logAction("CONNECTION DELETED - From KS " + std::to_string(removed.start_id) +
-            " to KS " + std::to_string(removed.stop_id) + " via Pipe " + std::to_string(removed.pipe_id));
+        logAction("CONNECTION DELETED - From CS " + std::to_string(removed.start_id) +
+            " to CS " + std::to_string(removed.stop_id) + " via Pipe " + std::to_string(removed.pipe_id));
         std::cout << "Connection deleted!" << std::endl;
     }
 }
 
-// Функция топологической сортировки
+// Function for topological sort
 void topologicalSort(const std::vector<Connection>& connections, const std::map<int, Compress>& stations) {
     if (stations.empty()) {
-        std::cout << "No CS for sort." << std::endl;
+        std::cout << "No compressor stations for sorting." << std::endl;
         return;
     }
 
     if (connections.empty()) {
-        std::cout << "No connection between CS." << std::endl;
+        std::cout << "No connections between stations." << std::endl;
         return;
     }
 
-    // Создаем карту входящих степеней
+    // Create in-degree map
     std::map<int, int> inDegree;
     for (const auto& station : stations) {
         inDegree[station.first] = 0;
     }
 
-    // Вычисляем входящие степени
+    // Calculate in-degrees
     for (const auto& conn : connections) {
         inDegree[conn.stop_id]++;
     }
 
-    // Топологическая сортировка
+    // Topological sort
     std::vector<std::vector<int>> result;
     std::vector<int> currentLevel;
 
     while (!inDegree.empty()) {
         currentLevel.clear();
 
-        // Находим станции с нулевой входящей степенью
+        // Find stations with zero in-degree
         for (auto it = inDegree.begin(); it != inDegree.end(); ) {
             if (it->second == 0) {
                 currentLevel.push_back(it->first);
@@ -350,13 +396,13 @@ void topologicalSort(const std::vector<Connection>& connections, const std::map<
         }
 
         if (currentLevel.empty()) {
-            // Обнаружен цикл
-            std::cout << "Cycle detected! Topological sorting impossible." << std::endl;
+            // Cycle detected
+            std::cout << "Cycle detected in graph! Topological sorting impossible." << std::endl;
             logAction("TOPOLOGICAL SORT: Cycle detected - sorting impossible");
             return;
         }
 
-        // Уменьшаем входящие степени для станций, соединенных с текущим уровнем
+        // Decrease in-degrees for stations connected to current level
         for (int stationId : currentLevel) {
             for (const auto& conn : connections) {
                 if (conn.start_id == stationId) {
@@ -371,8 +417,8 @@ void topologicalSort(const std::vector<Connection>& connections, const std::map<
         result.push_back(currentLevel);
     }
 
-    // Вывод результата
-    std::cout << "Topological sorting:" << std::endl;
+    // Output result
+    std::cout << "TOPOLOGICAL SORT:" << std::endl;
     std::cout << std::string(40, '-') << std::endl;
 
     for (size_t i = 0; i < result.size(); ++i) {
@@ -389,23 +435,23 @@ void topologicalSort(const std::vector<Connection>& connections, const std::map<
     logAction("TOPOLOGICAL SORT: Completed successfully - " + std::to_string(result.size()) + " levels");
 }
 
-// Сохранение данных
+// Save data
 void saveData(const std::map<int, Pipe>& pipes, const std::map<int, Compress>& stations, const std::vector<Connection>& connections) {
-    std::string filename = inputString("Enter name to save: ");
+    std::string filename = inputString("Enter filename for saving: ");
     std::ofstream file(filename);
 
     if (!file.is_open()) {
-        std::cout << "Error of opening file!" << std::endl;
+        std::cout << "Error opening file for writing!" << std::endl;
         logAction("SAVE ERROR: Cannot open file '" + filename + "' for writing");
         return;
     }
 
-    // Заголовок
+    // Header
     file << "PIPELINE SYSTEM DATA" << std::endl;
     file << "Saved: " << getCurrentTime() << std::endl;
     file << "" << std::endl << std::endl;
 
-    // Трубы сохранение
+    // Pipes saving
     file << "PIPES [" << pipes.size() << " items]:" << std::endl;
     file << std::string(50, '-') << std::endl;
     file << std::left << std::setw(6) << "ID"
@@ -425,7 +471,7 @@ void saveData(const std::map<int, Pipe>& pipes, const std::map<int, Compress>& s
 
     file << std::endl << std::endl;
 
-    // Сохранение станций
+    // Stations saving
     file << "COMPRESS STATIONS [" << stations.size() << " items]:" << std::endl;
     file << std::string(70, '-') << std::endl;
     file << std::left << std::setw(6) << "ID"
@@ -449,7 +495,7 @@ void saveData(const std::map<int, Pipe>& pipes, const std::map<int, Compress>& s
 
     file << std::endl << std::endl;
 
-    // Сохранение соединений
+    // Connections saving
     file << "CONNECTIONS [" << connections.size() << " items]:" << std::endl;
     file << std::string(40, '-') << std::endl;
     file << std::left << std::setw(8) << "StartID"
@@ -469,16 +515,16 @@ void saveData(const std::map<int, Pipe>& pipes, const std::map<int, Compress>& s
     logAction("SAVE: Successfully saved " + std::to_string(pipes.size()) + " pipes, " +
         std::to_string(stations.size()) + " stations and " + std::to_string(connections.size()) +
         " connections to file: '" + filename + "'");
-    std::cout << "Data saved sucsessfully '" << filename << "'!" << std::endl;
+    std::cout << "Data successfully saved to '" << filename << "'!" << std::endl;
 }
 
-// Загрузка из файла
+// Load from file
 void loadData(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std::vector<Connection>& connections, int& nextPipeId, int& nextStationId) {
-    std::string filename = inputString("Enter name of file to upload: ");
+    std::string filename = inputString("Enter filename for loading: ");
     std::ifstream file(filename);
 
     if (!file.is_open()) {
-        std::cout << "Can not open file for reading!" << std::endl;
+        std::cout << "Error opening file for reading!" << std::endl;
         logAction("LOAD ERROR: Cannot open file '" + filename + "' for reading");
         return;
     }
@@ -504,7 +550,7 @@ void loadData(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std
             readingPipes = true;
             readingStations = false;
             readingConnections = false;
-            // Пропускаем разделители
+            // Skip separators
             std::getline(file, line);
             std::getline(file, line);
             continue;
@@ -514,7 +560,7 @@ void loadData(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std
             readingPipes = false;
             readingStations = true;
             readingConnections = false;
-            // Пропускаем разделители
+            // Skip separators
             std::getline(file, line);
             std::getline(file, line);
             continue;
@@ -524,13 +570,13 @@ void loadData(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std
             readingPipes = false;
             readingStations = false;
             readingConnections = true;
-            // Пропускаем разделители
+            // Skip separators
             std::getline(file, line);
             std::getline(file, line);
             continue;
         }
 
-        // Выход при конце данных
+        // Exit at end of data
         if (line.find("END OF DATA") != std::string::npos) {
             break;
         }
@@ -590,11 +636,11 @@ void loadData(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std
     logAction("LOAD: Successfully loaded " + std::to_string(pipesLoaded) + " pipes, " +
         std::to_string(stationsLoaded) + " stations and " + std::to_string(connectionsLoaded) +
         " connections from file: '" + filename + "'");
-    std::cout << "Data sucsessfully loaded! Loaded " << pipesLoaded << " pipes, "
-        << stationsLoaded << " CS and " << connectionsLoaded << " connections." << std::endl;
+    std::cout << "Data successfully loaded! Loaded " << pipesLoaded << " pipes, "
+        << stationsLoaded << " stations and " << connectionsLoaded << " connections." << std::endl;
 }
 
-// Меню
+// Menu
 void Menu() {
     std::map<int, Pipe> pipes;
     std::map<int, Compress> stations;
@@ -606,24 +652,24 @@ void Menu() {
     logAction("PROGRAM STARTED");
 
     while (true) {
-        std::cout << "\nMain menu" << std::endl;
-        std::cout << "1. Add pipe" << std::endl;
-        std::cout << "2. Add CS" << std::endl;
-        std::cout << "3. Show all" << std::endl;
-        std::cout << "4. Edit pipe" << std::endl;
-        std::cout << "5. Edit CS" << std::endl;
-        std::cout << "6. Search pipe" << std::endl;
-        std::cout << "7. Search CS" << std::endl;
-        std::cout << "8. Batch pipe editing" << std::endl;
-        std::cout << "9. Create connection" << std::endl;
-        std::cout << "10. Show connections" << std::endl;
-        std::cout << "11. Delete connections" << std::endl;
-        std::cout << "12. Topological sorting" << std::endl;
-        std::cout << "13. Save data" << std::endl;
-        std::cout << "14. Upload data" << std::endl;
+        std::cout << "\nMAIN MENU" << std::endl;
+        std::cout << "1. Add Pipe" << std::endl;
+        std::cout << "2. Add Compressor Station" << std::endl;
+        std::cout << "3. View All Objects" << std::endl;
+        std::cout << "4. Edit Pipe" << std::endl;
+        std::cout << "5. Edit Compressor Station" << std::endl;
+        std::cout << "6. Search Pipes" << std::endl;
+        std::cout << "7. Search Stations" << std::endl;
+        std::cout << "8. Batch Edit Pipes" << std::endl;
+        std::cout << "9. Create Connection" << std::endl;
+        std::cout << "10. Show Connections" << std::endl;
+        std::cout << "11. Delete Connection" << std::endl;
+        std::cout << "12. Topological Sort" << std::endl;
+        std::cout << "13. Save Data" << std::endl;
+        std::cout << "14. Load Data" << std::endl;
         std::cout << "0. Exit" << std::endl;
 
-        int choice = inputInt("Choose option: ", 0, 14);
+        int choice = inputInt("Select option: ", 0, 14);
         logAction("MENU: User selected option " + std::to_string(choice));
 
         switch (choice) {
@@ -643,9 +689,9 @@ void Menu() {
         }
         case 3: {
             logAction("ACTION: Displaying all objects");
-            std::cout << "\nPipes:" << std::endl;
+            std::cout << "\nPIPES:" << std::endl;
             displayAllPipes(pipes);
-            std::cout << "\nCS's:" << std::endl;
+            std::cout << "\nCOMPRESSOR STATIONS:" << std::endl;
             displayAllCompressStations(stations);
             std::cout << "\n";
             displayConnections(connections, pipes, stations);
@@ -659,11 +705,11 @@ void Menu() {
             }
 
             displayAllPipes(pipes);
-            int pipeId = inputInt("Enter pipe ID for edit: ");
+            int pipeId = inputInt("Enter pipe ID to edit: ");
 
             auto it = pipes.find(pipeId);
             if (it != pipes.end()) {
-                std::cout << "Editing pipe with ID: " << pipeId << std::endl;
+                std::cout << "Editing pipe ID: " << pipeId << std::endl;
                 it->second = inputPipeData();
                 logAction("ACTION: Edited pipe with ID: " + std::to_string(pipeId));
             }
@@ -675,38 +721,38 @@ void Menu() {
         }
         case 5: {
             if (stations.empty()) {
-                std::cout << "No CS available for editing." << std::endl;
+                std::cout << "No stations available for editing." << std::endl;
                 logAction("ACTION: No stations available for editing");
                 break;
             }
 
             displayAllCompressStations(stations);
-            int stationId = inputInt("Enter ID for editing: ");
+            int stationId = inputInt("Enter station ID to edit: ");
 
             auto it = stations.find(stationId);
             if (it != stations.end()) {
-                std::cout << "Editing CS with ID: " << stationId << std::endl;
+                std::cout << "Editing station ID: " << stationId << std::endl;
                 it->second = inputCompressData();
                 logAction("ACTION: Edited station with ID: " + std::to_string(stationId));
             }
             else {
-                std::cout << "CS with ID " << stationId << " not found." << std::endl;
+                std::cout << "Station with ID " << stationId << " not found." << std::endl;
                 logAction("ACTION ERROR: Station with ID " + std::to_string(stationId) + " not found for editing");
             }
             break;
         }
         case 6: {
             logAction("ACTION: Starting pipe search");
-            std::cout << "Searchind pipes:\n1. Name\n2. Repairing status\n";
+            std::cout << "Search pipes by:\n1. Name\n2. Repair status\n";
             int searchChoice = inputInt("Enter choice: ", 1, 2);
 
             std::vector<int> foundIds;
             if (searchChoice == 1) {
-                std::string name = inputString("Enter name for search: ");
+                std::string name = inputString("Enter name to search: ");
                 foundIds = findPipesByName(pipes, name);
             }
             else {
-                bool repairStatus = inputBool("Search pipes on repair?");
+                bool repairStatus = inputBool("Search pipes under repair?");
                 foundIds = findPipesByRepairStatus(pipes, repairStatus);
             }
 
@@ -723,20 +769,20 @@ void Menu() {
         }
         case 7: {
             logAction("ACTION: Starting station search");
-            std::cout << "Searchinf CS:\n1. Name\n2. Percentage of free CS\n";
-            int searchChoice = inputInt("Enter your choice: ", 1, 2);
+            std::cout << "Search stations by:\n1. Name\n2. Unused workshops percentage\n";
+            int searchChoice = inputInt("Enter choice: ", 1, 2);
 
             std::vector<int> foundIds;
             if (searchChoice == 1) {
-                std::string name = inputString("Enter name: ");
+                std::string name = inputString("Enter name to search: ");
                 foundIds = findStationsByName(stations, name);
             }
             else {
-                double minPercentage = inputFloat("Enter min percentage: ", 0.0, 100.0);
+                double minPercentage = inputFloat("Enter minimum unused workshops percentage: ", 0.0, 100.0);
                 foundIds = findStationsByUnusedPercentage(stations, minPercentage);
             }
 
-            std::cout << "Founded " << foundIds.size() << " CS:" << std::endl;
+            std::cout << "Found " << foundIds.size() << " stations:" << std::endl;
             for (int id : foundIds) {
                 auto it = stations.find(id);
                 if (it != stations.end()) {
@@ -749,29 +795,29 @@ void Menu() {
         }
         case 8: {
             logAction("ACTION: Starting batch pipe edit");
-            std::cout << "Batch editing for pipes - select pipes to edit:\n";
-            std::cout << "1. Select by search\n2. Enter ID by user\n";
+            std::cout << "Batch edit pipes - select pipes to edit:\n";
+            std::cout << "1. Select by search\n2. Enter IDs manually\n";
             int selectChoice = inputInt("Enter choice: ", 1, 2);
 
             std::unordered_set<int> selectedIds;
 
             if (selectChoice == 1) {
-                std::cout << "Searching pipes:\n1. Name\n2. Repairing status\n";
+                std::cout << "Search pipes by:\n1. Name\n2. Repair status\n";
                 int searchChoice = inputInt("Enter choice: ", 1, 2);
 
                 if (searchChoice == 1) {
-                    std::string name = inputString("Enter name: ");
+                    std::string name = inputString("Enter name to search: ");
                     auto foundIds = findPipesByName(pipes, name);
                     selectedIds.insert(foundIds.begin(), foundIds.end());
                 }
                 else {
-                    bool repairStatus = inputBool("Search pipes on repairing?");
+                    bool repairStatus = inputBool("Search pipes under repair?");
                     auto foundIds = findPipesByRepairStatus(pipes, repairStatus);
                     selectedIds.insert(foundIds.begin(), foundIds.end());
                 }
             }
             else {
-                std::cout << "Enter pipes ID (0 to stop):" << std::endl;
+                std::cout << "Enter pipe IDs (0 to finish):" << std::endl;
                 while (true) {
                     int id = inputInt("Enter ID: ", 0);
                     if (id == 0) break;
@@ -783,7 +829,7 @@ void Menu() {
             break;
         }
         case 9: {
-            createConnection(pipes, stations, connections);
+            createConnection(pipes, stations, connections, nextPipeId);
             break;
         }
         case 10: {

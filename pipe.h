@@ -17,8 +17,8 @@ public:
     //по умолчанию
     Pipe();
 
-    //с параметрами
-    Pipe(const std::string& name, float length, int diametr, bool repair = false);
+    // Конструктор с определенным диаметром (без запроса диаметра)
+    Pipe(const std::string& name, float length, int diametr, bool repair);
 
     //установка значений
     void setName(const std::string& newName);

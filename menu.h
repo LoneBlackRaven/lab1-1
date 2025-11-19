@@ -26,7 +26,8 @@ std::vector<int> findStationsByName(const std::map<int, Compress>& stations, con
 std::vector<int> findStationsByUnusedPercentage(const std::map<int, Compress>& stations, double minPercentage);
 
 // Функции для соединений
-void createConnection(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std::vector<Connection>& connections);
+// Функции для соединений
+void createConnection(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std::vector<Connection>& connections, int& nextPipeId);
 void displayConnections(const std::vector<Connection>& connections, const std::map<int, Pipe>& pipes, const std::map<int, Compress>& stations);
 void deleteConnection(std::vector<Connection>& connections);
 

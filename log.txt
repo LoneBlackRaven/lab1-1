@@ -484,3 +484,55 @@ Program exited
 [2025-11-18 20:15:14.177] INPUT: Integer input - prompt: 'Choose option: ', value: 0
 [2025-11-18 20:15:14.178] MENU: User selected option 0
 [2025-11-18 20:15:14.178] PROGRAM EXIT
+[2025-11-19 12:12:10.789] PROGRAM STARTED
+[2025-11-19 12:12:13.748] INPUT: Integer input - prompt: 'Select option: ', value: 1
+[2025-11-19 12:12:13.749] MENU: User selected option 1
+[2025-11-19 12:12:16.165] INPUT: String input - prompt: 'Enter pipe name: ', value: '«¤¦'
+[2025-11-19 12:12:17.486] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 156.000000
+[2025-11-19 12:12:18.525] INPUT: Integer input - prompt: 'Enter pipe diameter (mm): ', value: 156
+[2025-11-19 12:12:19.645] INPUT: String input - prompt: 'Is pipe under repair? (0 - no, 1 - yes): ', value: '0'
+[2025-11-19 12:12:19.646] INPUT: Boolean input - prompt: 'Is pipe under repair?', value: false
+[2025-11-19 12:12:19.646] PIPE CREATED - ID: 1, Name: '«¤¦', Length: 156.000000km, Diameter: 156mm, Repair: no
+[2025-11-19 12:12:19.646] ACTION: Added new pipe ID 1
+[2025-11-19 12:12:22.861] INPUT: Integer input - prompt: 'Select option: ', value: 2
+[2025-11-19 12:12:22.861] MENU: User selected option 2
+[2025-11-19 12:12:24.596] INPUT: String input - prompt: 'Enter CS name: ', value: ' ¯à®«'
+[2025-11-19 12:12:26.633] INPUT: Integer input - prompt: 'Enter number of workshops: ', value: 156
+[2025-11-19 12:12:27.655] INPUT: Integer input - prompt: 'Enter number of working workshops: ', value: 24
+[2025-11-19 12:12:29.460] INPUT: String input - prompt: 'Enter classification: ', value: '¤¦í'
+[2025-11-19 12:12:31.132] INPUT: String input - prompt: 'Is CS working? (0 - no, 1 - yes): ', value: '1'
+[2025-11-19 12:12:31.133] INPUT: Boolean input - prompt: 'Is CS working?', value: true
+[2025-11-19 12:12:31.133] STATION CREATED - ID: 1, Name: ' ¯à®«', Total: 156, Working: 24, Classification: '¤¦í', Working: yes
+[2025-11-19 12:12:31.133] ACTION: Added new station ID 1
+[2025-11-19 12:12:34.004] INPUT: Integer input - prompt: 'Select option: ', value: 2
+[2025-11-19 12:12:34.004] MENU: User selected option 2
+[2025-11-19 12:12:35.845] INPUT: String input - prompt: 'Enter CS name: ', value: '¢ ¯à®«¤¦'
+[2025-11-19 12:12:37.536] INPUT: Integer input - prompt: 'Enter number of workshops: ', value: 478965
+[2025-11-19 12:12:38.540] INPUT: Integer input - prompt: 'Enter number of working workshops: ', value: 1254
+[2025-11-19 12:12:40.374] INPUT: String input - prompt: 'Enter classification: ', value: '¡î¤¦'
+[2025-11-19 12:12:41.526] INPUT: String input - prompt: 'Is CS working? (0 - no, 1 - yes): ', value: '1'
+[2025-11-19 12:12:41.527] INPUT: Boolean input - prompt: 'Is CS working?', value: true
+[2025-11-19 12:12:41.527] STATION CREATED - ID: 3, Name: '¢ ¯à®«¤¦', Total: 478965, Working: 1254, Classification: '¡î¤¦', Working: yes
+[2025-11-19 12:12:41.527] ACTION: Added new station ID 2
+[2025-11-19 12:12:45.433] INPUT: Integer input - prompt: 'Select option: ', value: 9
+[2025-11-19 12:12:45.434] MENU: User selected option 9
+[2025-11-19 12:12:48.047] INPUT: Integer input - prompt: 'Enter start CS ID: ', value: 1
+[2025-11-19 12:12:48.748] INPUT: Integer input - prompt: 'Enter end CS ID: ', value: 2
+[2025-11-19 12:12:51.971] INPUT: Integer input - prompt: 'Diameter: ', value: 500
+[2025-11-19 12:12:54.741] INPUT: String input - prompt: 'Enter pipe name: ', value: ' ¯à®«¤'
+[2025-11-19 12:12:56.443] INPUT: Float input - prompt: 'Enter pipe length (km): ', value: 145.000000
+[2025-11-19 12:12:56.443] PIPE CREATED FOR CONNECTION - ID: 2, Name: ' ¯à®«¤', Length: 145.000000km, Diameter: 500mm
+[2025-11-19 12:12:56.444] CONNECTION CREATED - From CS 1 to CS 2 via Pipe 2
+[2025-11-19 12:13:01.100] INPUT: Integer input - prompt: 'Select option: ', value: 10
+[2025-11-19 12:13:01.101] MENU: User selected option 10
+[2025-11-19 12:13:08.444] INPUT: Integer input - prompt: 'Select option: ', value: 12
+[2025-11-19 12:13:08.445] MENU: User selected option 12
+[2025-11-19 12:13:08.450] TOPOLOGICAL SORT: Completed successfully - 2 levels
+[2025-11-19 12:13:18.062] INPUT: Integer input - prompt: 'Select option: ', value: 3
+[2025-11-19 12:13:18.063] MENU: User selected option 3
+[2025-11-19 12:13:18.063] ACTION: Displaying all objects
+[2025-11-19 12:13:18.064] DISPLAY: Showing 2 pipes
+[2025-11-19 12:13:18.080] DISPLAY: Showing 2 stations
+[2025-11-19 12:13:34.007] INPUT: Integer input - prompt: 'Select option: ', value: 0
+[2025-11-19 12:13:34.007] MENU: User selected option 0
+[2025-11-19 12:13:34.008] PROGRAM EXIT

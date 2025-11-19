@@ -6,6 +6,7 @@ int Pipe::nextId = 1;
 Pipe::Pipe() : id(nextId++), name("Not set"), length(0.0f), diametr(0), repair(false) {}
 
 // Конструктор с параметрами
+// Конструктор с параметрами
 Pipe::Pipe(const std::string& name, float length, int diametr, bool repair)
     : id(nextId++), name(name), length(length), diametr(diametr), repair(repair) {
 }
