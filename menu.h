@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include <map>
 #include "connection.h"
+#include "graph.h"
 
 // Функция для ввода всех данных трубы
 Pipe inputPipeData();
@@ -26,13 +27,23 @@ std::vector<int> findStationsByName(const std::map<int, Compress>& stations, con
 std::vector<int> findStationsByUnusedPercentage(const std::map<int, Compress>& stations, double minPercentage);
 
 // Функции для соединений
-// Функции для соединений
 void createConnection(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std::vector<Connection>& connections, int& nextPipeId);
 void displayConnections(const std::vector<Connection>& connections, const std::map<int, Pipe>& pipes, const std::map<int, Compress>& stations);
 void deleteConnection(std::vector<Connection>& connections);
 
 // Функция топологической сортировки
 void topologicalSort(const std::vector<Connection>& connections, const std::map<int, Compress>& stations);
+
+// НОВЫЕ ФУНКЦИИ ДЛЯ РАСЧЕТОВ
+double calculateMaxFlow(const std::vector<Connection>& connections,
+    const std::map<int, Pipe>& pipes,
+    const std::map<int, Compress>& stations,
+    int sourceId, int sinkId);
+
+std::vector<int> findShortestPath(const std::vector<Connection>& connections,
+    const std::map<int, Pipe>& pipes,
+    const std::map<int, Compress>& stations,
+    int startId, int endId);
 
 // Функции для сохранения и загрузки
 void saveData(const std::map<int, Pipe>& pipes, const std::map<int, Compress>& stations, const std::vector<Connection>& connections);

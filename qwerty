@@ -1,0 +1,30 @@
+PIPELINE SYSTEM DATA
+Saved: 2025-12-16 15:53:17.067
+
+
+PIPES [3 items]:
+--------------------------------------------------
+ID    Name                Length    Diameter    Repair    
+--------------------------------------------------
+1     qweasd              43.00     700         No        
+2     qweasdczx           543.00    700         No        
+3     1                   123.00    500         No        
+
+
+COMPRESS STATIONS [3 items]:
+----------------------------------------------------------------------
+ID    Name                Total     Working   Unused %       Classification Working   
+----------------------------------------------------------------------
+1     qweqwe              43        3         93.0           wwqe           Yes       
+2     qweasdqwe           4         3         25.0           qweasd         Yes       
+3     qweasdqwe           4         3         25.0           qweasd         Yes       
+
+
+CONNECTIONS [2 items]:
+----------------------------------------
+StartID StopID  PipeID  
+----------------------------------------
+1       2       3       
+2       3       1       
+
+END OF DATA

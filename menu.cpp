@@ -1,18 +1,40 @@
-﻿#include "menu.h"
-#include "utils.h"
+﻿#include "utils.h"
+#include "graph.h"
 #include <iostream>
 #include <algorithm>
 #include <fstream>
 #include <iomanip>
 #include <sstream>
 #include <map>
+#include <queue>
+#include <limits>
+#include <cmath>
+#include <vector>
+#include <unordered_set>
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <limits>
+#include <cmath>
+#include "menu.h"
 
 // Input pipe
 Pipe inputPipeData() {
     std::cout << "Enter pipe data" << std::endl;
     std::string name = inputString("Enter pipe name: ");
     float length = inputFloat("Enter pipe length (km): ", 0.0f);
-    int diametr = inputInt("Enter pipe diameter (mm): ", 1);
+
+    // Проверяем стандартные диаметры
+    std::cout << "Available diameters: 500, 700, 1000, 1400 mm" << std::endl;
+    int diametr = inputInt("Enter pipe diameter (mm): ", 500);
+
+    // Проверяем, что диаметр стандартный
+    if (diametr != 500 && diametr != 700 && diametr != 1000 && diametr != 1400) {
+        std::cout << "Warning: Non-standard diameter! Standard diameters are: 500, 700, 1000, 1400 mm" << std::endl;
+    }
+
     bool repair = inputBool("Is pipe under repair?");
 
     Pipe pipe(name, length, diametr, repair);
@@ -640,6 +662,138 @@ void loadData(std::map<int, Pipe>& pipes, std::map<int, Compress>& stations, std
         << stationsLoaded << " stations and " << connectionsLoaded << " connections." << std::endl;
 }
 
+// Функция для расчета максимального потока
+double calculateMaxFlow(const std::vector<Connection>& connections,
+    const std::map<int, Pipe>& pipes,
+    const std::map<int, Compress>& stations,
+    int sourceId, int sinkId) {
+
+    if (stations.find(sourceId) == stations.end() ||
+        stations.find(sinkId) == stations.end()) {
+        std::cout << "Ошибка: указанные КС не существуют!" << std::endl;
+        return 0.0;
+    }
+
+    // Создаем граф
+    Graph graph;
+
+    // Добавляем ребра
+    for (const auto& conn : connections) {
+        auto pipeIt = pipes.find(conn.pipe_id);
+        if (pipeIt != pipes.end()) {
+            double capacity = pipeIt->second.getCapacity();
+            graph.addEdge(conn.start_id, conn.stop_id, conn.pipe_id, capacity, true);
+        }
+    }
+
+    // Вычисляем максимальный поток
+    double maxFlow = graph.maxFlow(sourceId, sinkId);
+
+    std::cout << "\n=== Max FLOW ===" << std::endl;
+    std::cout << "Start CS:  ID " << sourceId;
+    auto sourceIt = stations.find(sourceId);
+    if (sourceIt != stations.end()) {
+        std::cout << " (\"" << sourceIt->second.getName() << "\")";
+    }
+
+    std::cout << "\nFinish CS: ID " << sinkId;
+    auto sinkIt = stations.find(sinkId);
+    if (sinkIt != stations.end()) {
+        std::cout << " (\"" << sinkIt->second.getName() << "\")";
+    }
+
+    std::cout << "\nMax Flow: " << maxFlow << " mln. l³/day" << std::endl;
+    std::cout << "===============================\n" << std::endl;
+
+    logAction("MAX FLOW CALCULATION: Source=" + std::to_string(sourceId) +
+        ", Sink=" + std::to_string(sinkId) +
+        ", Flow=" + std::to_string(maxFlow) + " mln. m³/day");
+
+    return maxFlow;
+}
+
+// Функция для поиска кратчайшего пути
+std::vector<int> findShortestPath(const std::vector<Connection>& connections,
+    const std::map<int, Pipe>& pipes,
+    const std::map<int, Compress>& stations,
+    int startId, int endId) {
+
+    std::vector<int> path;
+
+    if (stations.find(startId) == stations.end() ||
+        stations.find(endId) == stations.end()) {
+        std::cout << "Error! CS not found" << std::endl;
+        return path;
+    }
+
+    if (startId == endId) {
+        std::cout << "Start and finish CS is equal!" << std::endl;
+        path.push_back(startId);
+        return path;
+    }
+
+    // Создаем граф
+    Graph graph;
+
+    // Добавляем ребра с весами
+    for (const auto& conn : connections) {
+        auto pipeIt = pipes.find(conn.pipe_id);
+        if (pipeIt != pipes.end()) {
+            double weight = pipeIt->second.getWeight();
+            if (weight < std::numeric_limits<double>::infinity()) {
+                graph.addEdge(conn.start_id, conn.stop_id, conn.pipe_id, weight, true);
+            }
+        }
+    }
+
+    // Ищем кратчайший путь
+    path = graph.shortestPath(startId, endId);
+
+    std::cout << "\n=== Min Path ===" << std::endl;
+
+    if (path.empty() || path.size() == 1) {
+        std::cout << "Path between CS with ID " << startId << " and CS ID " << endId
+            << " not found!" << std::endl;
+    }
+    else {
+        std::cout << "Path between CS with ID " << startId << " and CS ID " << endId
+            << " (" << path.size() - 1 << " paths):" << std::endl;
+
+        double totalWeight = 0.0;
+        for (size_t i = 0; i < path.size(); ++i) {
+            std::cout << path[i];
+            auto stationIt = stations.find(path[i]);
+            if (stationIt != stations.end()) {
+                std::cout << " (\"" << stationIt->second.getName() << "\")";
+            }
+
+            if (i < path.size() - 1) {
+                std::cout << " -> ";
+                // Находим трубу между этими КС для отображения длины
+                for (const auto& conn : connections) {
+                    if ((conn.start_id == path[i] && conn.stop_id == path[i + 1]) ||
+                        (conn.start_id == path[i + 1] && conn.stop_id == path[i])) {
+                        auto pipeIt = pipes.find(conn.pipe_id);
+                        if (pipeIt != pipes.end()) {
+                            totalWeight += pipeIt->second.getWeight();
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+        std::cout << "\nPath weight: " << totalWeight << " points" << std::endl;
+    }
+
+    std::cout << "====================\n" << std::endl;
+
+    logAction("SHORTEST PATH: From=" + std::to_string(startId) +
+        ", To=" + std::to_string(endId) +
+        ", Path length=" + std::to_string(path.size()));
+
+    return path;
+}
+
 // Menu
 void Menu() {
     std::map<int, Pipe> pipes;
@@ -665,11 +819,13 @@ void Menu() {
         std::cout << "10. Show Connections" << std::endl;
         std::cout << "11. Delete Connection" << std::endl;
         std::cout << "12. Topological Sort" << std::endl;
-        std::cout << "13. Save Data" << std::endl;
-        std::cout << "14. Load Data" << std::endl;
+        std::cout << "13. Calculate Maximum Flow" << std::endl;      // НОВЫЙ ПУНКТ
+        std::cout << "14. Find Shortest Path" << std::endl;          // НОВЫЙ ПУНКТ
+        std::cout << "15. Save Data" << std::endl;                   // СМЕЩЕНО
+        std::cout << "16. Load Data" << std::endl;                   // СМЕЩЕНО
         std::cout << "0. Exit" << std::endl;
 
-        int choice = inputInt("Select option: ", 0, 14);
+        int choice = inputInt("Select option: ", 0, 16);
         logAction("MENU: User selected option " + std::to_string(choice));
 
         switch (choice) {
@@ -844,12 +1000,63 @@ void Menu() {
             topologicalSort(connections, stations);
             break;
         }
-        case 13: {
+        case 13: {  // Расчет максимального потока
+            if (stations.size() < 2) {
+                std::cout << "Not enough CS to flow." << std::endl;
+                break;
+            }
+
+            if (connections.empty()) {
+                std::cout << "Not connections." << std::endl;
+                break;
+            }
+
+            std::cout << "Available CS:" << std::endl;
+            for (const auto& station : stations) {
+                std::cout << "ID: " << station.first << " - \""
+                    << station.second.getName() << "\"" << std::endl;
+            }
+
+            int sourceId = inputInt("Enter start ID: ");
+            int sinkId = inputInt("Enter finish ID: ");
+
+            if (sourceId == sinkId) {
+                std::cout << "Please enter different IDs!" << std::endl;
+                break;
+            }
+
+            calculateMaxFlow(connections, pipes, stations, sourceId, sinkId);
+            break;
+        }
+        case 14: {  // Поиск кратчайшего пути
+            if (stations.size() < 2) {
+                std::cout << "Not enough CS for flow." << std::endl;
+                break;
+            }
+
+            if (connections.empty()) {
+                std::cout << "Not connections." << std::endl;
+                break;
+            }
+
+            std::cout << "Available CS:" << std::endl;
+            for (const auto& station : stations) {
+                std::cout << "ID: " << station.first << " - \""
+                    << station.second.getName() << "\"" << std::endl;
+            }
+
+            int startId = inputInt("Enter start ID: ");
+            int endId = inputInt("Enter dinish ID: ");
+
+            findShortestPath(connections, pipes, stations, startId, endId);
+            break;
+        }
+        case 15: {  // Было 13, стало 15
             logAction("ACTION: User initiated data save");
             saveData(pipes, stations, connections);
             break;
         }
-        case 14: {
+        case 16: {  // Было 14, стало 16
             logAction("ACTION: User initiated data load");
             loadData(pipes, stations, connections, nextPipeId, nextStationId);
             break;

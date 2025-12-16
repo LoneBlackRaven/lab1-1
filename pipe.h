@@ -1,8 +1,10 @@
-#ifndef PIPE_H
+п»ї#ifndef PIPE_H
 #define PIPE_H
 
 #include <string>
 #include <iostream>
+#include <limits>
+#include <map>
 
 class Pipe {
 private:
@@ -14,29 +16,31 @@ private:
     bool repair;
 
 public:
-    //по умолчанию
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
     Pipe();
-
-    // Конструктор с определенным диаметром (без запроса диаметра)
     Pipe(const std::string& name, float length, int diametr, bool repair);
 
-    //установка значений
+    // РЈСЃС‚Р°РЅРѕРІРєР° Р·РЅР°С‡РµРЅРёР№
     void setName(const std::string& newName);
     void setLength(float newLength);
     void setDiametr(int newDiametr);
     void setRepair(bool newRepair);
 
-    //получение значений
+    // РџРѕР»СѓС‡РµРЅРёРµ Р·РЅР°С‡РµРЅРёР№
     int getId() const;
     std::string getName() const;
     float getLength() const;
     int getDiametr() const;
     bool getRepair() const;
 
-    //вывод инфы
+    // РќРѕРІС‹Рµ РјРµС‚РѕРґС‹ РґР»СЏ СЂР°СЃС‡РµС‚Р°
+    double getCapacity() const;  // РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚СЊ (РјР»РЅ. РјВі/СЃСѓС‚)
+    double getWeight() const;    // Р’РµСЃ РґР»СЏ Р°Р»РіРѕСЂРёС‚РјР° Р”РµР№РєСЃС‚СЂС‹
+
+    // Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё
     void display() const;
 
-    //айди
+    // ID
     static int getNextId();
 };
 
